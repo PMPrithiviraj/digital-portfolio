@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <style>
+
+        /*--------------------------------------------------------------------------------
+                               🎭 Animation Section 🎭
+--------------------------------------------------------------------------------*/
+
+      @keyframes FadeIn {
+        0% {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInDown {
+        0% {
+          transform: translateY(-50px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeOut {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @keyframes fadeIn {
+        0% {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInLineBig {
+        0% {
+          opacity: 0;
+          transform: translateX(-100%) scale(0.8);
+        }
+        50% {
+          opacity: 0.5;
+          transform: translateX(10px) scale(1.05);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0) scale(1);
+        }
+      }
+
+/*--------------------------------------------------------------------------------
+                               🎭 Apply Animation  🎭
+--------------------------------------------------------------------------------*/
+        .fadeInLineBig {
+          animation: fadeInLineBig 1s ease-out forwards;
+        }
+
+      @keyframes fadeInLeft {
+        0% {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-200px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+/*--------------------------------------------------------------------------------
+                               🎭 Home Section 🎭
+--------------------------------------------------------------------------------*/
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+          background: linear-gradient(to right, #001127, #002f4e);
+          height: 100vh;
+          width: 100%;
+          background-size: cover;
+          color: #F5F5F5;
+        }
+
+        .header {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          padding: 15px 5%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: transparent;
+          z-index: 100;
+        }
+
+        .logo {
+          font-size: 25px;
+          color: bisque;
+          text-decoration: none;
+          font-weight: bold;
+          transition: text-shadow 0.3s ease-in-out;
+        }
+
+        .logo:hover {
+          color: rgb(8, 107, 173);
+          text-shadow: 0 0 10px rgb(5, 99, 223), 0 0 40px rgb(9, 119, 163);
+        }
+
+        .navbar a {
+          font-size: 15px;
+          color: rgb(80, 243, 15);
+          text-decoration: none;
+          font-weight: bold;
+          margin-left: 25px;
+          transition: text-shadow 0.3s ease-in-out;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+          color: rgb(11, 213, 248);
+          text-shadow: 0 0 10px rgb(41, 6, 238);
+        }
+
+        .home {
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          padding: 0 8%;
+          animation: FadeIn 0.7s ease-out forwards;
+        }
+
+        .avatar {
+          width: 350px;
+          height: 350px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-left: 40%;
+          animation: fadeInDown 1.5s ease-in-out;
+        }
+
+        .avatar:hover {
+          border: 0.5px solid rgb(49, 114, 136);
+          box-shadow: 0 0 10px rgb(5, 99, 223), 0 0 40px rgb(9, 119, 163);
+          animation: fadeOut 7s ease-in-out forwards;
+          transition: box-shadow 0.7s ease-in-out;
+        }
+
+        .home-content {
+          max-width: 600px;
+        }
+
+        .home-content h1,
+        .h1-name {
+          font-family: "Dancing Script", cursive;
+          font-size: 55px;
+          font-weight: 800;
+        }
+
+        .h1-name:hover {
+          color: #00abf0;
+        }
+
+        .home-content h3 {
+          font-size: 36px;
+          font-weight: 800;
+          color: rgb(150, 212, 228);
+        }
+
+        .home-content h3:hover {
+          color: #00abf0;
+        }
+
+        .home-pera {
+          font-size: 20px;
+          line-height: 1.5;
+        }
+
+        .btn-box {
+          display: flex;
+          justify-content: space-between;
+          width: 375px;
+          height: 50px;
+        }
+
+        .btn-box a {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: 175px;
+          height: 100%;
+          background: transparent;
+          border: solid #00abf0 2px;
+          border-radius: 10px;
+          font-size: 19px;
+          color: #00abf0;
+          text-decoration: none;
+          font-weight: 600;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .btn-box a:hover {
+          background: #00abf0;
+          transform: scale(0.9);
+          box-shadow: 0 0 10px rgb(120, 198, 224);
+          color: #081b29;
+        }
+
+        .footer {
+          position: fixed;
+          left: 8%;
+          bottom: 5%;
+          display: flex;
+          gap: 30px;
+          animation: slideUp 0.7s ease-out forwards;
+        }
+
+        .footer a {
+          font-size: 25px;
+          display: flex;
+          color: #007BFF;
+          justify-content: center;
+          align-items: center;
+          width: 35px;
+          height: 35px;
+          background: transparent;
+          border-radius: 50%;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .footer a:hover {
+          background-color: transparent;
+          color: lime;
+          transform: scale(0.9);
+          text-shadow: 0 0 50px rgb(120, 198, 224);
+        }
+
+
+/*--------------------------------------------------------------------------------
+                               🎭 About Section 🎭
+--------------------------------------------------------------------------------*/
+
+        .about {
+          background: linear-gradient(to right, #001127, #002f4e);
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0 8%;
+          gap: 50px;
+          animation: fadeInDown 1s ease-out forwards;
+        }
+
+        .image-about {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .avatar-about {
+          width: 300px;
+          height: 300px;
+          border-radius: 50%;
+          object-fit: cover;
+          box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .about-content {
+          color: #ffffff;
+          max-width: 600px;
+          letter-spacing: 1px;
+          text-align: justify;
+        }
+
+        .about-content h1 {
+          font-family: serif;
+          color: #00aaff;
+          margin-bottom: 20px;
+          text-align: center;
+          font-size: 45px;
+        }
+
+        .about-pera {
+          font-size: 18px;
+          line-height: 1.5;
+          font-weight: normal;
+          padding-bottom: 20px;
+        }
+
+
+/*--------------------------------------------------------------------------------
+                               🎭 Skills Section 🎭
+--------------------------------------------------------------------------------*/
+
+        .container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px;
+          padding: 30px;
+        }
+
+        .section-box {
+          color: #081b29;
+          background: white;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          width: 320px;
+          margin: 90px auto;
+          text-align: center;
+          animation: fadeIn 1s ease-in-out forwards;
+          transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .section-box:hover {
+          transform: translateY(-30px);
+          border: 1px solid rgb(120, 198, 224); /* Make sure the border is transparent  */
+          box-shadow: 0 0 10px rgb(245, 247, 248), 0 0 20px rgb(196, 200, 204), 0 0 25px rgb(180, 197, 206), 0 0 25px rgb(203, 203, 216);
+          animation: fadeIn 1s ease-in-out forwards;
+          transition: box-shadow 0.1s ease-in-out;
+        }
+
+        h2 {
+          color: #007BFF;
+          font-size: 22px;
+          border-bottom: 2px solid #007BFF;
+          display: inline-block;
+          padding-bottom: 5px;
+          margin-bottom: 15px;
+        }
+
+        ul {
+          list-style-type: none;
+          padding: 0;
+        }
+
+        ul li {
+          margin: 10px 0;
+          font-size: 18px;
+        }
+
+        progress {
+          width: 100%;
+          height: 12px;
+          border-radius: 5px;
+        }
+
+        progress::-webkit-progress-bar {
+          background-color: #ddd;
+          border-radius: 5px;
+        }
+
+        progress::-webkit-progress-value {
+          background-color: #007BFF;
+          border-radius: 5px;
+        }
+
+        progress::-moz-progress-bar {
+          background-color: #007BFF;
+          border-radius: 5px;
+        }
+
+        .section-box:nth-child(1) {
+          background-color: #f9f9f9;
+        }
+
+        .section-box:nth-child(2) {
+          background-color: #f4f4f4;
+        }
+
+        .section-box:nth-child(3) {
+          background-color: #f9f9f9;
+        }
+
+/*--------------------------------------------------------------------------------
+                              🎭 My Project Section 🎭
+--------------------------------------------------------------------------------*/
+
+        .projects-section {
+          padding: 60px 20px;
+          text-align: center;
+        }
+
+        .projects-section h2 {
+          margin-top: 100px;
+          font-size: 2.5em;
+          margin-bottom: 20px;
+          color: #007bff;
+        }
+
+        .projects-container {
+          display: flex;
+          justify-content: center;
+          gap: 30px;
+          flex-wrap: wrap;
+        }
+
+        .project-card {
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px #002f4e;
+          width: 300px;
+          padding: 20px;
+          text-align: center;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card img {
+          width: 100%;
+          height: auto;
+          border-radius: 8px;
+          margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+          font-size: 1.8em;
+          color: #333;
+          margin-bottom: 10px;
+        }
+
+        .project-card p {
+          font-size: 1em;
+          color: #666;
+          margin-bottom: 15px;
+        }
+
+        .project-link {
+          display: inline-block;
+          padding: 10px 20px;
+          background-color: #007bff;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 5px;
+          transition: background-color 0.3s ease;
+        }
+
+        .project-link:hover {
+          background-color: #0056b3;
+        }
+
+/*--------------------------------------------------------------------------------
+                               🎭 Contact Section 🎭
+--------------------------------------------------------------------------------*/
+
+        :root {
+          --bg-color: #ffffff;
+          --text-color: #1f1e1e;
+          --box-bg: #f4f4f4;
+          --button-bg: #007BFF;
+        }
+
+        .container-contact {
+          background: linear-gradient(to right, #001127, #002f4e);
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0 8%;
+          animation: fadeInDown 1s ease-out forwards;
+        }
+
+        .contact-close-btn {
+          position: absolute;
+          top: 10px;
+          right: 20px;
+          font-size: 20px;
+          cursor: pointer;
+          color: black;
+        }
+        .contact-box, .contact-info {
+          margin: 100px auto;
+          background: var(--box-bg);
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          width: 40%;
+          text-align: center;
+          min-width: 300px;
+        }
+        .contact-para {
+          color: rgb(14, 2, 2); 
+          font-size: 15px;
+          font-weight: 500;
+        }
+
+        .contact-info h3, p {
+          margin-bottom: 30px;
+        }
+
+        .contact-holder, h3 {
+          margin-bottom: 20px;
+          color: var(--button-bg);
+        }
+
+        input, textarea {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          margin: 10px 0;
+          background: var(--bg-color);
+          color: var(--text-color);
+        }
+
+        button {
+          background: var(--button-bg);
+          color: white;
+          padding: 10px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          width: 100%;
+          transition: 0.3s;
+        }
+
+        button:hover {
+          background: #0056b3;
+        }
+
+/*--------------------------------------------------------------------------------
+                               🎭 Hire Me Section 🎭
+--------------------------------------------------------------------------------*/
+
+        .hire-h1{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px;
+          color: darkgoldenrod;
+          padding-top: 100px;
+          padding-bottom: 50px; 
+        }
+
+        .hire-me {
+          border-radius: 50px;
+          padding: 50px;
+          margin-left: 150px;
+          max-width: 1000px;
+          background: transparent;
+          color: #fff;
+        }
+
+        .hire-me h2{
+          margin-bottom: 30px;
+          margin-left: -50px;
+        }
+
+        .hire-me button {
+          padding: 10px 20px;
+          background: #0056b3;
+          max-width: 150px;
+          border-radius: 50px;
+          border: none;
+          color: white;
+          font-size: 16px;
+          cursor: pointer;
+        }
+
+        .popup {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.6);
+        }
+
+        .popup-content {
+          background: #fff;
+          padding: 20px;
+          width: 300px;
+          margin: 100px auto;
+          text-align: left;
+          position: relative;
+        }
+
+        .popup-content input, 
+        .popup-content textarea {
+          width: 100%;
+          padding: 10px;
+          margin: 10px 0;
+        }
+
+        .close-btn {
+          position: absolute;
+          top: 10px;
+          right: 20px;
+          font-size: 20px;
+          cursor: pointer;
+          color: black;
+        }
+
+        .close-btn:hover{
+          background-color: red;
+          padding: 5px 5px;
+        }
+
+        .header .social-links {
+          margin: 0 0 20px 0;
+        }
+
+        .header .social-links a {
+          font-size: 16px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          background: color-mix(in srgb, var(--default-color), transparent 90%);
+          color: var(--default-color);
+          margin: 0 2px;
+          border-radius: 50%;
+          text-align: center;
+          width: 40px;
+          height: 40px;
+          transition: 0.3s;
+        }
+
+        .header .social-links a:hover {
+          color: var(--contrast-color);
+          background: var(--accent-color);
+        }
+
+    </style>
+    </head>
+    <body>
+      <header class="header">
+        <a href="index.html" class="logo">Prithiviraj P.M</a>
+
+        <nav class="navbar">
+            <a href="#home" >Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">My Projects</a>
+            <a href="#contact">Contact</a> <!-- Fixed Typo -->
+          </nav>
+        </header>
+
+    <!--Home Section-->
+        <section class="home" id="home">
+          <div class="home-content">
+            <h1>Hi, I'm <span class="h1-name"> Prithiviraj</span></h1>
+            <h3>Web Developer</h3>
+            <p class="home-pera">
+                Hi, I am P.M. Prithiviraj, currently pursuing UG at Sridevi Arts and Science College. 
+                I can turn invisible just by closing my eyes 😜.
+            </p>
+            <div class="btn-box">
+                <a href="./hire.html">Hire Me</a>
+                <a href="./Resume-Prithivi.pdf" id="downloadBtn" download>Download CV</a>
+            </div>
+          </div>
+
+          <div class="image">
+            <img src="img/logo.webp" class="avatar">
+          </div>
+        </section>
+
+    <!--About Section-->
+        <section class="about" id="about">
+          <div class="image-about">
+            <img src="img/logo2.png" style="margin-top: 5%;" class="avatar-about">
+          </div>
+          <div class="about-content">
+            <h1>✨ About Me ✨</h1>
+            <p class="about-pera">
+                I am a motivated Web Development student at Sridevi Arts and Science College with a keen interest in creating dynamic and responsive websites.
+                I have a strong understanding of front-end and back-end technologies and am always eager to learn new skills. My goal is to gain practical experience 
+                and contribute to impactful web projects while continuously improving my coding and problem-solving abilities.
+            </p>
+          </div>
+        </section>
+
+        <!--Skills Section -->
+        <section class="container" id="skills">
+
+         <!-- Technical Skills -->
+            <div class="section-box">
+                <h2>✨ Technical Skills ✨</h2>
+                <ul>
+                    <li>HTML <progress value="0.9" max="1"></progress></li>
+                    <li>CSS <progress value="0.8" max="1"></progress></li>
+                    <li>JavaScript <progress value="0.4" max="1"></progress></li>
+                    <li>Java <progress value="0.85" max="1"></progress></li>
+                    <li>Python <progress value="0.75" max="1"></progress></li>
+                </ul>
+            </div>
+    
+        
+
+    <!-- Soft Skills -->
+    <div class="section-box">
+        <h2>✨ Soft Skills ✨</h2>
+        <ul>
+            <li>Communication <progress value="0.9" max="1"></progress></li>
+            <li>Teamwork <progress value="0.8" max="1"></progress></li>
+            <li>Problem-Solving <progress value="0.85" max="1"></progress></li>
+            <li>Leadership <progress value="0.75" max="1"></progress></li>
+            <li>Adaptability <progress value="0.7" max="1"></progress></li>
+        </ul>
+    </div>
+    
+    <!-- Education -->
+    <div class="section-box">
+        <h2>✨ Education ✨</h2>
+        <ul>
+            <li><strong>Bachelor's of Computer Science</strong> - Sridevi Arts and Science College</li>
+            <li><b>Certifications:</b>
+                <ul>
+                    <li>Java Training Certification (Besant technologies)</li>
+                    <li>Full Stack Web Development Bootcamp (NoviTech)</li>
+                </ul></li>
+                  <li><b>Training:</b>
+                  <ul>
+                      <li>Full stack Web Development Bootcamp</li>
+                  </ul>
+              </li>
+          </ul>
+        </div>
+
+      </section>
+
+
+    <!-- Project Section -->
+     
+    <section class="projects-section" id="projects">
+
+        <h2>My Projects</h2>
+        <!--Container 1-->
+        <div class="projects-container">
+            <div class="project-card">
+                <img src="img/logo3.png" alt="Project 1">
+                <h3>Login page</h3>
+                <p>A brief description of the project. What was built and the tech stack used.</p>
+                <a href="loginPage.html" target="_blank" class="project-link">View Project</a>
+        </div>
+
+        <!--Container 2-->
+        <div class="projects-container" >
+            <div class="project-card">
+                <img src="img/logo4.png" alt="Project ">
+                <h3>Shoe Shop</h3>
+                <p>A brief description of the project. What was built and the tech stack used.</p>
+                <a href="index-shop.html" target="_blank" class="project-link">View Project</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container-contact">
+            <div class="contact-box" id="contact-box">
+                <h1 class="contact-holder">✨ Let's Talk ✨</h1>
+                <p class="contact-para">I'm always open to discussing product design work or partnership opportunities.</p>
+                <form id="contactForm">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <textarea id="message" placeholder="Your Message" required></textarea>
+                    <button type="submit" id="submitBtn">Send Message</button>
+                    <p id="status"></p>
+                </form>
+            </div>
+    </section>
+
+    <script>
+        //Smooth scrolling to section when clicking on navigation links
+        document.documentElement.scrollTop = 100;
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        document.getElementById("hireBtn").addEventListener("click", function() {
+            document.getElementById("popupForm").style.display = "block";
+        });
+        document.querySelector(".close-btn").addEventListener("click", function() {
+            document.getElementById("popupForm").style.display = "none";
+        });
+
+    </script>
+
+    <!--Fotter Section-->
+    <footer class="footer">
+        <a href="https://github.com/prithivi0205" class="github"><i class="bi bi-github"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100090952364883" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/milky_boy._.05/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/feed/?trk=seo-authwall-base_sign-in-submit" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <a href="https://wa.me/+919003800733" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+    </footer>
+
+</body>
+</html>

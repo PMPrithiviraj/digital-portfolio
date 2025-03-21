@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire Me</title>
+    <!--<link href="./styles.css" rel="stylesheet">-->
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+          background: linear-gradient(to right, #001127, #002f4e);
+          height: 100vh;
+          width: 100%;
+          background-size: cover;
+          color: #F5F5F5;
+        }
+
+        .header {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          padding: 15px 5%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: transparent;
+          z-index: 100;
+        }
+
+        .logo {
+          font-size: 25px;
+          color: bisque;
+          text-decoration: none;
+          font-weight: bold;
+          transition: text-shadow 0.3s ease-in-out;
+        }
+
+        .logo:hover {
+          color: rgb(8, 107, 173);
+          text-shadow: 0 0 10px rgb(5, 99, 223), 0 0 40px rgb(9, 119, 163);
+        }
+
+        .navbar a {
+          font-size: 15px;
+          color: rgb(80, 243, 15);
+          text-decoration: none;
+          font-weight: bold;
+          margin-left: 25px;
+          transition: text-shadow 0.3s ease-in-out;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+          color: rgb(11, 213, 248);
+          text-shadow: 0 0 10px rgb(41, 6, 238);
+        }
+        .hire-h1{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px;
+          color: darkgoldenrod;
+          padding-top: 100px;
+          padding-bottom: 50px; 
+        }
+
+        .hire-me {
+          border-radius: 50px;
+          padding: 50px;
+          margin-left: 150px;
+          max-width: 1000px;
+          background: transparent;
+          color: #fff;
+        }
+
+        .hire-me h2{
+          margin-bottom: 30px;
+          margin-left: -50px;
+        }
+
+        .hire-me p{
+          margin-bottom: 30px;
+        }
+
+        .hire-me button {
+          padding: 10px 20px;
+          background: #0056b3;
+          max-width: 150px;
+          border-radius: 50px;
+          border: none;
+          color: white;
+          font-size: 16px;
+          cursor: pointer;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+        }
+
+        .popup-content input, 
+        .popup-content textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 20px;
+            cursor: pointer;
+            color: rgb(3, 1, 1);
+        }
+
+        .close-btn:hover{
+            color: rgb(255, 0, 0);
+        }
+
+        .popup-content button {
+            padding: 10px 20px;
+            background: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="body-hire">
+    <header class="header">
+        <a href="index.html" class="logo">Prithiviraj P.M</a>
+
+        <nav class="navbar">
+            <a href="index.html" class="active">Home</a>
+            <!--<a href="#">About</a>
+            <a href="#">Skills</a>
+            <a href="#">My Projects</a>
+            <a href="#">Contact</a>-->
+        </nav>
+    </header>
+
+    <h1 class="hire-h1">✨  Thank you for Choosing me  ✨</h1>
+
+    <section class="hire-me">
+        <h2 style="font-size: 32px;">Let's Work Together</h2>
+        <p style="font-size: 20px; font-weight: bold;"> ➤  Looking for a passionate web developer? I'm available for freelance and full-time work.</p>
+        <center><button id="hireBtn">Hire Me</button></center>
+    </section>
+
+    <div id="popupForm" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>Hire Me</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("hireBtn").addEventListener("click", function() {
+            document.getElementById("popupForm").style.display = "block";
+        });
+        document.querySelector(".close-btn").addEventListener("click", function() {
+            document.getElementById("popupForm").style.display = "none";
+        });
+
+    </script>
+    
+</body>
+</html>

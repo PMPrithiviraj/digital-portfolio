@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Shop</title>
+    <style>
+        
+
+        /* Navbar */
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926');
+            background-size: cover;
+            background-position: center;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            color: #f2f2f2;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 20px 10%;
+            text-align: center;
+        }
+
+        .products h1 {
+            margin-bottom: 60px;
+        }
+        .products .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .product-grid .product {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .product img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .product h3 {
+            margin: 10px 0;
+        }
+        .product p {
+            font-weight: bold;
+        }
+
+        .about {
+            padding: 20px 10%;
+            text-align: center;
+        }
+        .about h2 {
+            margin-bottom: 20px;
+        }
+        .about p {
+            font-size: 1.2rem;
+        }
+        .about img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .about h3 {
+            margin: 10px 0;
+        }
+        .contact {
+            padding: 20px 10%;
+            text-align: center;
+        }
+        .contact h2 {
+            margin-bottom: 20px;
+        }
+        .contact p {
+            font-size: 1.2rem;
+        }
+        .contact img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .contact h3 {
+            margin: 10px 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <h1><span style="color: red;">Zum Zum </span>FootWear</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Step into Comfort & Style</h2>
+            <p>Find the perfect pair for every occasion</p>
+            <a href="#shop" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <section class="products" id="shop">
+        <h1>Our Collection</h1>
+        <div class="product-grid">
+            <div class="product">
+                <img src="img/shopping (5).webp" alt="Shoe 1">
+                <h3>Running Shoes</h3>
+                <p>$450.00</p>
+            </div>
+
+            <div class="product">
+                <img src="img/shopping (10).jpeg" alt="Shoe 1">
+                <h3>Sports Shoes</h3>
+                <p>$500.00</p>
+            </div>
+
+            <div class="product">
+                <img src="img/shopping (2).webp" alt="Shoe 1">
+                <h3>Sneakers Shoes</h3>
+                <p>$475.00</p>
+            </div>
+
+            <div class="product">
+                <img src="img/shopping (11).webp" alt="Shoe 3">
+                <h3>Crocs</h3>
+                <p>$3200.00</p>
+            </div>
+
+            <div class="product">
+                <img src="img/shopping (4).webp" alt="Shoe 3">
+                <h3>Puma Slippers</h3>
+                <p>$1300.00</p>
+            </div>
+
+            <div class="product">
+                <img src="img/shopping (12).jpeg" alt="Shoe 3">
+                <h3>Partywear</h3>
+                <p>$990.00</p>
+            </div>
+
+            <div class="product">
+                <img src="img/shopping (7).jpeg" alt="Shoe 1">
+                <h3>Sneakers Shoes</h3>
+                <p>$650.00</p>
+            </div>
+
+            <div class="product">
+                <img src="img/shopping (8).jpeg" alt="Shoe 1">
+                <h3>Woodland Premium Shoes</h3>
+                <p>$1200.00</p>
+            </div>
+
+            <div class="product">
+                <img src="img/shopping (3).webp" alt="Shoe 1">
+                <h3>SparkX Footwear</h3>
+                <p>$750.00</p>
+            </div>
+
+            <div class="product">
+                <img src="img/shopping (6).webp" alt="Shoe 1">
+                <h3>Loafers</h3>
+                <p>$575.00</p>
+            </div>
+
+            <div class="product">
+                <img src="img/shopping (1).webp" alt="Shoe 2">
+                <h3>School Shoes</h3>
+                <p>$400.00</p>
+            </div>
+            <div class="product">
+                <img src="img/shopping (9).jpeg" alt="Shoe 3">
+                <h3>Loafers</h3>
+                <p>$899.00</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2>About Us</h2>
+        <p>We provide high-quality shoes for all occasions. Our collection is designed to combine comfort, durability, and style.</p>
+        <p>At Zum Zum Footwear, we are committed to providing stylish, high-quality, and comfortable footwear for every occasion. Whether you need trendy sneakers, elegant formal shoes, or durable sports footwear, our collection is designed to meet your needs.
+             We believe that the right pair of shoes not only enhances your style but also boosts your confidence. Crafted with premium materials, our footwear ensures the perfect blend of fashion and comfort.
+              With a passion for customer satisfaction, we strive to make your shopping experience seamless and enjoyable. Step into style with Zum Zum Footwear, where fashion meets comfort at the best prices.</p>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p><span style="font-weight: bold; font-size: large;">Address :</span> Zum Zum Footwear Redhills, Chennai - 52</p>
+        <p><span style="font-weight: bold; font-size: large;">E - mail :</span> pmprithiviraj@gmail.com</p>
+        <p><span style="font-weight: bold; font-size: large;">Phone :</span> 91+ 9003800733</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Prithiviraj PM ShoeShop. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        //Smooth scrolling to section when clicking on navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

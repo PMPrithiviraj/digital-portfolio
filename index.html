@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Portfolio</title>
-
+    <link rel="icon" type="image/jpg" href="img/icon.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -26,7 +26,7 @@
         }
 
         body {
-            background: linear-gradient(to right, #001127, #002f4e);
+            background: linear-gradient(to right, #001127, #0a0f3c);
             color: #f5f5f5;
             line-height: 1.6;
             text-rendering: optimizeLegibility;
@@ -218,6 +218,7 @@
 
         /* ---------- Home ---------- */
         .home-content h1 {
+            margin-top: 50px;
             font-size: 50px;
             opacity: 0;
             /* Initial state for animation */
@@ -251,7 +252,7 @@
 
         .btn-box {
             display: flex;
-            gap: 20px;
+            gap: 60px;
             margin-top: 20px;
             opacity: 0;
             /* Initial state for animation */
@@ -301,7 +302,7 @@
         }
 
         .avatar {
-            width: 300px;
+            width: 400px;
             border-radius: 50%;
             justify-self: center;
             opacity: 0;
@@ -312,7 +313,7 @@
 
         /* ---------- About ---------- */
         .avatar-about {
-            width: 250px;
+            width: 400px;
             border-radius: 50%;
             justify-self: center;
             opacity: 0;
@@ -341,98 +342,119 @@
             animation-delay: 0.9s;
         }
 
-        /* ---------- Skills ---------- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            width: 100%;
-            /* Ensure grid takes full width available in section */
-            max-width: 1200px;
-            /* Limit width for large screens */
-        }
-
-        .section-box {
-            background: #fff;
-            color: #081b29;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            opacity: 0;
-            /* Initial state for animation */
-            animation: fadeUp 1s ease forwards;
-            /* Changed from slideInUp for this context */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            /* For hover */
-        }
-
-        .section-box:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-
-        .section-box:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        .section-box:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        .section-box:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .section-box h2 {
-            color: #007BFF;
-            margin-bottom: 15px;
-        }
-
-        .section-box ul {
-            list-style: none;
-            text-align: left;
-        }
-
-        .section-box li {
-            margin: 10px 0;
-            font-size: 16px;
+        /* Skills Container */
+        .skills-container {
             display: flex;
-            /* For progress bar alignment */
-            align-items: center;
-            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 60px;
         }
 
-        progress {
+        .section-title {
+            margin-bottom: 50px;
+            font-size: xx-large;
+            color: #007BFF;
+        }
+
+        /* Skill Card */
+        .skill-card {
+            background: linear-gradient(145deg, #0a1a3d, #111c4e);
+            border-radius: 12px;
+            padding: 25px;
+            width: 350px;
+            color: #fff;
+            text-align: left;
+            transition: 0.4s;
+            box-shadow: 0 0 12px rgba(46, 114, 255, 0.4);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 15px #2e72ff;
+        }
+
+        .skill-card h2 {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #2e72ff;
+            text-shadow: 0 0 8px #2e72ff;
+            text-align: center;
+        }
+
+        /* List Style */
+        .skill-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-card ul li {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        /* Table reset */
+        .skill-card table {
             width: 100%;
-            height: 10px;
-            /* Make it visible */
+            border-collapse: collapse;
+        }
+
+        .skill-card td {
+            padding: 6px 0;
+            text-align: left;
+            font-size: 15px;
+            color: #fff;
+        }
+
+        /* Range bar styling */
+        .range-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .range-container input[type="range"] {
+            width: 100%;
+            appearance: none;
+            height: 8px;
+            border-radius: 6px;
+            outline: none;
+            box-shadow: 0 0 10px #2e72ff;
+            transition: box-shadow 0.3s ease;
+        }
+
+        /* Hide slider thumb */
+        .range-container input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 0;
+            height: 0;
+        }
+
+        .range-container input[type="range"]::-moz-range-thumb {
             border: none;
-            border-radius: 5px;
-            background-color: #e0e0e0;
-            /* Background for the track */
-            overflow: hidden;
-            /* Hide overflow of animated bar */
+            width: 0;
+            height: 0;
         }
 
-        /* Animate progress bar fill */
-        progress::-webkit-progress-bar {
-            background-color: #e0e0e0;
-            border-radius: 5px;
+        /* Tooltip */
+        .tooltip {
+            position: absolute;
+            top: -28px;
+            right: 0;
+            background: #2e72ff;
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            opacity: 0;
+            transform: translateY(5px);
+            transition: all 0.3s ease;
+            text-shadow: 0 0 6px #fff;
+            box-shadow: 0 0 12px #2e72ff;
         }
 
-        progress::-webkit-progress-value {
-            background-color: #00abf0;
-            border-radius: 5px;
-            /* This animation will cause the bar to fill from 0 to its current value when first rendered */
-            animation: fadeIn 1.5s ease-out forwards;
+        .range-container:hover .tooltip {
+            opacity: 1;
+            transform: translateY(0);
         }
-
-        progress::-moz-progress-bar {
-            background-color: #00abf0;
-            border-radius: 5px;
-            animation: fadeIn 1.5s ease-out forwards;
-        }
-
 
         /* ---------- Projects ---------- */
         .projects-section h2 {
@@ -524,115 +546,48 @@
             /* Lift button on hover */
         }
 
-        /* ---------- Contact ---------- */
-        .container-contact {
-            display: grid;
-            grid-template-columns: 1fr;
-            max-width: 600px;
-            margin: auto;
-            background: #f4f4f4;
+        /* Social Cards */
+        .social-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 70px;
+            justify-content: center;
+            margin: 40px auto;
+            max-width: 1100px;
+        }
+
+        .social-card {
+            background: #111c4e;
             border-radius: 10px;
-            padding: 30px;
-            color: #000;
-            opacity: 0;
-            /* Initial state for animation */
-            animation: fadeUp 1s ease forwards;
-            animation-delay: 0.1s;
-            /* Base delay for the contact container */
-        }
-
-        .container-contact h1 {
-            color: #007BFF;
-            margin-bottom: 15px;
+            padding: 20px;
+            width: 220px;
             text-align: center;
-            opacity: 0;
-            /* Initial state for animation */
-            animation: slideInRight 1s ease forwards;
-            animation-delay: 0.2s;
-        }
-
-        .container-contact p {
-            text-align: center;
-            opacity: 0;
-            /* Initial state for animation */
-            animation: fadeUp 1s ease forwards;
-            animation-delay: 0.4s;
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            /* Initial state for animation */
-            animation: fadeUp 1s ease forwards;
-        }
-
-        .container-contact input:nth-of-type(1) {
-            animation-delay: 0.6s;
-        }
-
-        .container-contact input:nth-of-type(2) {
-            animation-delay: 0.8s;
-        }
-
-        .container-contact textarea {
-            animation-delay: 1.0s;
-        }
-
-
-        input:focus,
-        textarea:focus {
-            outline: none;
-            border-color: #00abf0;
-            box-shadow: 0 0 8px rgba(0, 171, 240, 0.6);
-        }
-
-        button[type="submit"] {
-            /* Target specific button if there are others */
-            background: #007BFF;
             color: #fff;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            /* Initial state for animation */
-            animation: fadeUp 1s ease forwards;
-            animation-delay: 1.2s;
-            z-index: 1;
+            transition: 0.3s;
+            text-decoration: none;
         }
 
-        button[type="submit"]:hover {
-            background: #0056b3;
-            transform: scale(1.03);
-            /* Slight scale */
-            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+        .social-card:hover {
+            background: #0f1e5e;
+            color: #2e72ff;
+            transform: translateY(-6px);
+            box-shadow: 0 0 15px #2e72ff;
         }
 
-        /* New button shine effect for submit button */
-        button[type="submit"]::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.3);
-            transition: left 0.5s ease;
-            transform: skewX(-45deg);
-            z-index: -1;
+        .social-card i {
+            font-size: 34px;
+            margin-bottom: 10px;
         }
 
-        button[type="submit"]:hover::before {
-            left: 100%;
+        .social-name {
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .social-description {
+            font-size: 14px;
+            opacity: 0.8;
         }
 
 
@@ -641,78 +596,18 @@
         .footer {
             background: #111;
             color: #ddd;
+            margin-top: 20px;
             padding: 40px 20px 20px;
             text-align: center;
+            font-size: 14px;
             font-family: 'Poppins', sans-serif;
+            border-top: 1px solid #333;
         }
 
-        .footer-container {
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        .footer-about h3 {
-            color: #fff;
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
-
-        .footer-about p {
+        .footer p {
             font-size: 15px;
             color: #bbb;
             margin-bottom: 20px;
-        }
-
-        .footer-social {
-            margin: 15px 0;
-        }
-
-        .footer-social a {
-            display: inline-block;
-            margin: 0 10px;
-            font-size: 22px;
-            color: #bbb;
-            transition: all 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            color: #00d4ff;
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #777;
-            border-top: 1px solid #333;
-            padding-top: 15px;
-        }
-
-
-        footer a:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-
-        footer a:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        footer a:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        footer a:nth-child(4) {
-            animation-delay: 0.8s;
-        }
-
-        footer a:nth-child(5) {
-            animation-delay: 1.0s;
-        }
-
-        footer a:hover {
-            color: lime;
-            transform: translateY(-5px) scale(1.1);
-            /* Lift and scale */
         }
 
         /* ---------- Responsive tweaks ---------- */
@@ -755,17 +650,6 @@
                 /* Single column layout */
             }
         }
-
-        .footer-about h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #00abf0;
-        }
-
-        .footer-about p {
-            font-size: 15px;
-            line-height: 1.5;
-        }
     </style>
 </head>
 
@@ -777,7 +661,7 @@
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
+            <a href="#works">Works</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -787,21 +671,23 @@
         <div class="home-content">
             <h1>Hi, I'm <span class="h1-name">Prithiviraj</span></h1>
             <h3>Web Developer</h3>
-            <p><p>
-                    Currently pursuing my UG at Sridevi Arts and Science College and dedicated to creating modern, responsive, and user-friendly websites.
-</p>
-</p>
+            <p>
+            <p>
+                Currently pursuing my UG at Sridevi Arts and Science College and dedicated to creating modern,
+                responsive, and user-friendly websites.
+            </p>
+            </p>
             <div class="btn-box">
-                <a href="./hire.html">Hire Me</a>
+                <a href="mailto:pmprithiviraj@gmail.com">Hire Me</a>
                 <a href="./Resume-Prithivi.pdf" download>Download CV</a>
             </div>
         </div>
-        <img src="img/logo.webp" class="avatar" alt="Prithiviraj Avatar">
+        <img src="img/logo2.png" class="avatar" alt="Prithiviraj Avatar">
     </section>
 
     <!-- About -->
     <section class="about" id="about">
-        <img src="img/logo2.png" class="avatar-about" alt="Prithiviraj About">
+        <img src="img/logo.webp" class="avatar-about" alt="Prithiviraj About">
         <div class="about-content">
             <h1>✨ About Me ✨</h1>
             <p>I am a motivated Web Development student at Sridevi Arts and Science College with a keen interest in
@@ -813,54 +699,167 @@
         </div>
     </section>
 
-    <!-- Skills -->
-    <section class="skills" id="skills">
-        <div class="skills-grid">
-            <div class="section-box">
+    <!-- Skills Section -->
+    <section id="skills">
+        <h1 class="section-title">💡 Skills & Education 💡</h1>
+        <div class="skills-container">
+
+            <!-- Technical Skills -->
+            <div class="skill-card">
                 <h2>✨ Technical Skills ✨</h2>
-                <ul>
-                    <li>HTML <progress value="0.9" max="1"></progress></li>
-                    <li>CSS <progress value="0.8" max="1"></progress></li>
-                    <li>JavaScript <progress value="0.4" max="1"></progress></li>
-                    <li>Java <progress value="0.85" max="1"></progress></li>
-                    <li>Python <progress value="0.75" max="1"></progress></li>
-                </ul>
+                <table>
+                    <tr>
+                        <td><span>HTML</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="range-container">
+                                <input
+                                    style="background: linear-gradient(50deg, #2e72ff var(--val, 90%), #333 var(--val, 10%));"
+                                    type="range" value="90%" max="100%" disabled>
+                                <span class="tooltip">90%</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><span>CSS</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="range-container">
+                                <input
+                                    style="background: linear-gradient(50deg, #2e72ff var(--val, 80%), #333 var(--val, 20%));"
+                                    type="range" value="80" max="100" disabled>
+                                <span class="tooltip">80%</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><span>JavaScript</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="range-container">
+                                <input
+                                    style="background: linear-gradient(50deg, #2e72ff var(--val, 40%), #333 var(--val, 40%));"
+                                    type="range" value="40" max="100" disabled>
+                                <span class="tooltip">40%</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><span>Java</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="range-container">
+                                <input
+                                    style="background: linear-gradient(50deg, #2e72ff var(--val, 85%), #333 var(--val, 15%));"
+                                    type="range" value="85" max="100" disabled>
+                                <span class="tooltip">85%</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><span>Python</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="range-container">
+                                <input
+                                    style="background: linear-gradient(50deg, #2e72ff var(--val, 75%), #333 var(--val, 25%));"
+                                    type="range" value="75" max="100" disabled>
+                                <span class="tooltip">75%</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
 
-            <div class="section-box">
+            <!-- Soft Skills -->
+            <div class="skill-card">
                 <h2>✨ Soft Skills ✨</h2>
                 <ul>
-                    <li>Communication <progress value="0.9" max="1"></progress></li>
-                    <li>Teamwork <progress value="0.8" max="1"></progress></li>
-                    <li>Problem-Solving <progress value="0.85" max="1"></progress></li>
-                    <li>Leadership <progress value="0.75" max="1"></progress></li>
-                    <li>Adaptability <progress value="0.7" max="1"></progress></li>
+                    <li>
+                        <span>Communication</span>
+                        <div class="range-container">
+                            <input
+                                style="background: linear-gradient(50deg, #2e72ff var(--val, 90%), #333 var(--val, 10%));"
+                                type="range" value="90" max="100" disabled>
+                            <span class="tooltip">90%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Teamwork</span>
+                        <div class="range-container">
+                            <input
+                                style="background: linear-gradient(50deg, #2e72ff var(--val, 80%), #333 var(--val, 20%));"
+                                type="range" value="80" max="100" disabled>
+                            <span class="tooltip">80%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Problem-Solving</span>
+                        <div class="range-container">
+                            <input
+                                style="background: linear-gradient(50deg, #2e72ff var(--val, 85%), #333 var(--val, 15%));"
+                                type="range" value="85" max="100" disabled>
+                            <span class="tooltip">85%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Leadership</span>
+                        <div class="range-container">
+                            <input
+                                style="background: linear-gradient(50deg, #2e72ff var(--val, 75%), #333 var(--val, 25%));"
+                                type="range" value="75" max="100" disabled>
+                            <span class="tooltip">75%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Adaptability</span>
+                        <div class="range-container">
+                            <input
+                                style="background: linear-gradient(50deg, #2e72ff var(--val, 70%), #333 var(--val, 30%));"
+                                type="range" value="70" max="100" disabled>
+                            <span class="tooltip">70%</span>
+                        </div>
+                    </li>
                 </ul>
             </div>
 
-            <div class="section-box">
+            <!-- Education -->
+            <div class="skill-card">
                 <h2>✨ Education ✨</h2>
                 <ul>
-                    <li><strong>Bachelor's of Computer Science</strong> - Sridevi Arts and Science College</li>
-                    <li><b>Certifications:</b>
+                    <li><strong>Bachelor's of Computer Science</strong></li>
+                    <li>Sridevi Arts and Science College</li>
+                    <li>
+                        <b>Certifications:</b>
                         <ul>
                             <li>Java Training Certification (Besant Technologies)</li>
                             <li>Full Stack Web Development Bootcamp (NoviTech)</li>
                         </ul>
                     </li>
-                    <li><b>Training:</b>
+                    <li>
+                        <b>Training:</b>
                         <ul>
-                            <li>Full stack Web Development Bootcamp</li>
+                            <li>Full Stack Web Development Bootcamp</li>
                         </ul>
                     </li>
                 </ul>
             </div>
+
         </div>
     </section>
 
     <!-- Projects -->
-    <section class="projects-section" id="projects">
-        <h2>My Projects</h2>
+    <section class="projects-section" id="works">
+        <h2>My Works</h2>
         <div class="projects-container">
             <div class="project-card">
                 <img src="img/logo3.png" alt="Project 1 Login Page">
@@ -879,51 +878,42 @@
         </div>
     </section>
 
-    <!-- Contact -->
-    <section class="contact" id="contact">
-        <div class="container-contact">
-            <h1>✨ Let's Talk ✨</h1>
-            <p style="text-align:center;">I'm always open to discussing product design work or partnership
-                opportunities.</p>
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
+    <!-- Social -->
+    <section class="social-container" id="contact">
+        <a href="https://github.com/PMPrithiviraj" target="_blank" class="social-card"><i class="bi bi-github"></i>
+            <div class="social-name">GitHub</div>
+            <div class="social-description">Check out my code and projects</div>
+        </a>
+
+        <a href="https://www.facebook.com/profile.php?id=100090952364883" target="_blank" class="social-card"><i
+                class="bi bi-facebook"></i>
+            <div class="social-name">Facebook</div>
+            <div class="social-description">Connect with me on Facebook</div>
+        </a>
+
+        <a href="https://www.linkedin.com/feed/" target="_blank" class="social-card" aria-label="LinkedIn">
+            <i class="bi bi-linkedin"></i>
+            <div class="social-name">LinkedIn</div>
+            <div class="social-description">Let’s connect professionally</div>
+        </a>
+
+        <a href="https://www.instagram.com/milky_boy._.05/" target="_blank" class="social-card"><i
+                class="bi bi-instagram"></i>
+            <div class="social-name">Instagram</div>
+            <div class="social-description">Follow me on Instagram</div>
+        </a>
+
+        <a href="https://wa.me/+919003800733" target="_blank" class="social-card" aria-label="WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+            <div class="social-name">WhatsApp</div>
+            <div class="social-description">Message me directly</div>
+        </a>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-about">
-                <h3>Prithiviraj P.M</h3>
-                <p>A passionate Web Developer eager to build impactful and user-friendly websites.</p>
-            </div>
-
-            <div class="footer-social">
-                <a href="https://github.com/PMPrithiviraj" target="_blank" aria-label="GitHub"><i
-                        class="bi bi-github"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100090952364883" target="_blank"
-                    aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                <a href="https://www.instagram.com/milky_boy._.05/" target="_blank" aria-label="Instagram"><i
-                        class="bi bi-instagram"></i></a>
-                <a href="https://www.linkedin.com/feed/" target="_blank" aria-label="LinkedIn"><i
-                        class="bi bi-linkedin"></i></a>
-                <a href="https://wa.me/+919003800733" target="_blank" aria-label="WhatsApp"><i
-                        class="bi bi-whatsapp"></i></a>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2025 Prithiviraj P.M | All Rights Reserved.</p>
-        </div>
+        <p>© 2025 Prithiviraj P.M | All Rights Reserved.</p>
     </footer>
 
-
 </body>
-
 </html>
-
-

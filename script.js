@@ -213,16 +213,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Download CV button
-const downloadCVBtn = document.getElementById('downloadCV');
-if (downloadCVBtn) {
-    downloadCVBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        alert('Please upload your CV file to enable downloads!');
-        // When you have your CV file, replace the alert with:
-        // window.location.href = 'path/to/your/resume.pdf';
-    });
-}
 
 // Initialize animations on page load
 window.addEventListener('load', () => {

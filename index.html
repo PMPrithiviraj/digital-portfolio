@@ -1,919 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio</title>
-    <link rel="icon" type="image/jpg" href="img/icon.jpg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-
-    <style>
-        /* General Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: linear-gradient(to right, #001127, #0a0f3c);
-            color: #f5f5f5;
-            line-height: 1.6;
-            text-rendering: optimizeLegibility;
-            /* Improves text rendering */
-        }
-
-        /* Keyframe Animations */
-        @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInLeft {
-            0% {
-                opacity: 0;
-                transform: translateX(-100px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            0% {
-                opacity: 0;
-                transform: translateX(100px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInDown {
-            0% {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes zoomIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            background: rgba(0, 17, 39, 0.8);
-            /* Slightly visible background */
-            backdrop-filter: blur(10px);
-            /* Frosted glass effect */
-            transition: background 0.3s ease, backdrop-filter 0.3s ease;
-        }
-
-        .logo {
-            font-size: 25px;
-            color: bisque;
-            font-weight: bold;
-            text-decoration: none;
-            transition: transform 0.3s ease, color 0.3s ease;
-            /* Added for hover */
-        }
-
-        .logo:hover {
-            color: #fff;
-            /* bisque to white */
-            transform: scale(1.1);
-        }
-
-        .navbar {
-            display: flex;
-            gap: 25px;
-        }
-
-        .navbar a {
-            font-size: 15px;
-            font-weight: bold;
-            text-decoration: none;
-            color: rgb(80, 243, 15);
-            position: relative;
-            /* For the underline effect */
-        }
-
-        .navbar a:hover {
-            color: rgb(11, 213, 248);
-        }
-
-        .navbar a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            /* Adjust based on desired spacing */
-            width: 0;
-            height: 2px;
-            background-color: rgb(11, 213, 248);
-            /* Same as hover color */
-            transition: width 0.3s ease-in-out;
-        }
-
-        .navbar a:hover::after {
-            width: 100%;
-        }
-
-
-        /* Section Base Styles */
-        section {
-            width: 100%;
-            min-height: 100vh;
-            /* Ensure sections take at least full viewport height */
-            padding-top: 80px;
-            /* Account for fixed header */
-            padding-bottom: 60px;
-            /* Ensure space at the bottom */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            /* Horizontally center content for flex sections */
-        }
-
-        /* Specific section overrides for padding and display if they use grid */
-        .home {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            align-items: center;
-            padding: 0 8%;
-            /* Home starts at the very top, adjust padding */
-            min-height: 100vh;
-        }
-
-        .about {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            align-items: center;
-            padding: 80px 8%;
-            /* Keep original padding, it accounts for the header */
-            min-height: 100vh;
-        }
-
-        .skills,
-        .projects-section,
-        .contact {
-            padding: 60px 8%;
-            /* Original padding for these sections */
-            min-height: 100vh;
-        }
-
-
-        /* ---------- Home ---------- */
-        .home-content h1 {
-            margin-top: 50px;
-            font-size: 50px;
-            opacity: 0;
-            /* Initial state for animation */
-            animation: slideInLeft 1s ease forwards;
-            animation-delay: 0.3s;
-        }
-
-        .home-content h3 {
-            font-size: 30px;
-            color: rgb(150, 212, 228);
-            opacity: 0;
-            /* Initial state for animation */
-            animation: slideInLeft 1s ease forwards;
-            animation-delay: 0.5s;
-        }
-
-        .home-content p {
-            font-size: 18px;
-            margin: 15px 0;
-            opacity: 0;
-            /* Initial state for animation */
-            animation: slideInLeft 1s ease forwards;
-            animation-delay: 0.7s;
-        }
-
-        .h1-name {
-            display: inline-block;
-            /* Required for transform on span */
-            transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
-        }
-
-        .btn-box {
-            display: flex;
-            gap: 60px;
-            margin-top: 20px;
-            opacity: 0;
-            /* Initial state for animation */
-            animation: fadeUp 1s ease forwards;
-            animation-delay: 0.9s;
-        }
-
-        .btn-box a {
-            padding: 10px 20px;
-            border: 2px solid #00abf0;
-            border-radius: 10px;
-            color: #00abf0;
-            text-decoration: none;
-            transition: 0.3s;
-            position: relative;
-            /* For button animation */
-            overflow: hidden;
-            z-index: 1;
-            /* Ensure shine is layered correctly */
-        }
-
-        .btn-box a:hover {
-            background: #00abf0;
-            color: #081b29;
-            transform: scale(1.05);
-            /* Combined with general button animation */
-            box-shadow: 0 4px 15px rgba(0, 171, 240, 0.6);
-        }
-
-        /* New button shine effect */
-        .btn-box a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.3);
-            transition: left 0.5s ease;
-            transform: skewX(-45deg);
-            z-index: -1;
-            /* Place behind button text */
-        }
-
-        .btn-box a:hover::before {
-            left: 100%;
-        }
-
-        .avatar {
-            width: 400px;
-            border-radius: 50%;
-            justify-self: center;
-            opacity: 0;
-            /* Initial state for animation */
-            animation: zoomIn 1.2s ease forwards;
-            animation-delay: 1.0s;
-        }
-
-        /* ---------- About ---------- */
-        .avatar-about {
-            width: 400px;
-            border-radius: 50%;
-            justify-self: center;
-            opacity: 0;
-            /* Initial state for animation */
-            animation: zoomIn 1.2s ease forwards;
-            animation-delay: 0.5s;
-        }
-
-        .about-content h1 {
-            color: #00aaff;
-            margin-bottom: 20px;
-            font-size: 35px;
-            text-align: center;
-            opacity: 0;
-            /* Initial state for animation */
-            animation: slideInRight 1s ease forwards;
-            animation-delay: 0.7s;
-        }
-
-        .about-content p {
-            font-size: 18px;
-            text-align: justify;
-            opacity: 0;
-            /* Initial state for animation */
-            animation: slideInRight 1s ease forwards;
-            animation-delay: 0.9s;
-        }
-
-        /* Skills Container */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 60px;
-        }
-
-        .section-title {
-            margin-bottom: 50px;
-            font-size: xx-large;
-            color: #007BFF;
-        }
-
-        /* Skill Card */
-        .skill-card {
-            background: linear-gradient(145deg, #0a1a3d, #111c4e);
-            border-radius: 12px;
-            padding: 25px;
-            width: 350px;
-            color: #fff;
-            text-align: left;
-            transition: 0.4s;
-            box-shadow: 0 0 12px rgba(46, 114, 255, 0.4);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 0 15px #2e72ff;
-        }
-
-        .skill-card h2 {
-            margin-bottom: 20px;
-            font-size: 20px;
-            color: #2e72ff;
-            text-shadow: 0 0 8px #2e72ff;
-            text-align: center;
-        }
-
-        /* List Style */
-        .skill-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .skill-card ul li {
-            margin-bottom: 15px;
-            font-size: 15px;
-        }
-
-        /* Table reset */
-        .skill-card table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .skill-card td {
-            padding: 6px 0;
-            text-align: left;
-            font-size: 15px;
-            color: #fff;
-        }
-
-        /* Range bar styling */
-        .range-container {
-            position: relative;
-            width: 100%;
-        }
-
-        .range-container input[type="range"] {
-            width: 100%;
-            appearance: none;
-            height: 8px;
-            border-radius: 6px;
-            outline: none;
-            box-shadow: 0 0 10px #2e72ff;
-            transition: box-shadow 0.3s ease;
-        }
-
-        /* Hide slider thumb */
-        .range-container input[type="range"]::-webkit-slider-thumb {
-            appearance: none;
-            width: 0;
-            height: 0;
-        }
-
-        .range-container input[type="range"]::-moz-range-thumb {
-            border: none;
-            width: 0;
-            height: 0;
-        }
-
-        /* Tooltip */
-        .tooltip {
-            position: absolute;
-            top: -28px;
-            right: 0;
-            background: #2e72ff;
-            color: #fff;
-            padding: 3px 8px;
-            border-radius: 6px;
-            font-size: 12px;
-            opacity: 0;
-            transform: translateY(5px);
-            transition: all 0.3s ease;
-            text-shadow: 0 0 6px #fff;
-            box-shadow: 0 0 12px #2e72ff;
-        }
-
-        .range-container:hover .tooltip {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ---------- Projects ---------- */
-        .projects-section h2 {
-            font-size: 35px;
-            color: #00aaff;
-            margin-bottom: 30px;
-            opacity: 0;
-            /* Initial state for animation */
-            animation: slideInDown 1s ease forwards;
-            animation-delay: 0.2s;
-        }
-
-        .projects-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-            width: 100%;
-            max-width: 1200px;
-            opacity: 0;
-            /* Initial state for animation */
-            animation: fadeUp 1s ease forwards;
-            animation-delay: 0.4s;
-        }
-
-        .project-card {
-            background: #fff;
-            color: #333;
-            border-radius: 10px;
-            padding: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            /* Combined transitions */
-            opacity: 0;
-            /* Initial state for animation */
-            animation: zoomIn 0.8s ease forwards;
-        }
-
-        .project-card:nth-child(1) {
-            animation-delay: 0.6s;
-        }
-
-        .project-card:nth-child(2) {
-            animation-delay: 0.8s;
-        }
-
-        /* Add more delays for additional project cards if needed */
-        .project-card:nth-child(3) {
-            animation-delay: 1.0s;
-        }
-
-        .project-card:nth-child(4) {
-            animation-delay: 1.2s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            /* Enhanced hover */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            /* Enhanced shadow */
-        }
-
-        .project-card img {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            /* Kept existing hover */
-        }
-
-        .project-card img:hover {
-            transform: scale(1.08) rotate(2deg);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 15px;
-            background: #007bff;
-            color: #fff;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .project-link:hover {
-            background: #0056b3;
-            transform: translateY(-3px);
-            /* Lift button on hover */
-        }
-
-        /* Social Cards */
-        .social-container {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 70px;
-            justify-content: center;
-            margin: 40px auto;
-            max-width: 1100px;
-        }
-
-        .social-card {
-            background: #111c4e;
-            border-radius: 10px;
-            padding: 20px;
-            width: 220px;
-            text-align: center;
-            color: #fff;
-            transition: 0.3s;
-            text-decoration: none;
-        }
-
-        .social-card:hover {
-            background: #0f1e5e;
-            color: #2e72ff;
-            transform: translateY(-6px);
-            box-shadow: 0 0 15px #2e72ff;
-        }
-
-        .social-card i {
-            font-size: 34px;
-            margin-bottom: 10px;
-        }
-
-        .social-name {
-            font-weight: bold;
-            margin-bottom: 6px;
-        }
-
-        .social-description {
-            font-size: 14px;
-            opacity: 0.8;
-        }
-
-
-        /* ---------- Footer ---------- */
-        /* Footer Styling */
-        .footer {
-            background: #111;
-            color: #ddd;
-            margin-top: 20px;
-            padding: 40px 20px 20px;
-            text-align: center;
-            font-size: 14px;
-            font-family: 'Poppins', sans-serif;
-            border-top: 1px solid #333;
-        }
-
-        .footer p {
-            font-size: 15px;
-            color: #bbb;
-            margin-bottom: 20px;
-        }
-
-        /* ---------- Responsive tweaks ---------- */
-        @media (max-width: 768px) {
-            .home-content h1 {
-                font-size: 36px;
-            }
-
-            .home-content h3 {
-                font-size: 24px;
-            }
-
-            .navbar {
-                gap: 15px;
-            }
-
-            .navbar a {
-                font-size: 14px;
-            }
-
-            .avatar,
-            .avatar-about {
-                width: 200px;
-                /* Smaller avatars on mobile */
-            }
-
-            .home,
-            .about,
-            .skills,
-            .projects-section,
-            .contact {
-                padding-left: 5%;
-                padding-right: 5%;
-            }
-
-            /* Adjust grid columns for smaller screens */
-            .skills-grid,
-            .projects-container {
-                grid-template-columns: 1fr;
-                /* Single column layout */
-            }
-        }
-    </style>
+    <title>Prithiviraj - Web Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="./img/icon.jpg">
 </head>
-
 <body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-glow"></div>
 
-    <header>
-        <a href="#home" class="logo">Prithiviraj</a>
-        <nav class="navbar">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#works">Works</a>
-            <a href="#contact">Contact</a>
-        </nav>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="#home" class="logo">Prithiviraj</a>
+            
+            <nav class="navbar" id="navbar">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#works" class="nav-link">Works</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
     </header>
 
-    <!-- Home -->
-    <section class="home" id="home">
-        <div class="home-content">
-            <h1>Hi, I'm <span class="h1-name">Prithiviraj</span></h1>
-            <h3>Web Developer</h3>
-            <p>
-            <p>
-                Currently pursuing my UG at Sridevi Arts and Science College and dedicated to creating modern,
-                responsive, and user-friendly websites.
-            </p>
-            </p>
-            <div class="btn-box">
-                <a href="mailto:pmprithiviraj@gmail.com">Hire Me</a>
-                <a href="./Resume-Prithivi.pdf" download>Download CV</a>
-            </div>
-        </div>
-        <img src="img/logo2.png" class="avatar" alt="Prithiviraj Avatar">
-    </section>
-
-    <!-- About -->
-    <section class="about" id="about">
-        <img src="img/logo.webp" class="avatar-about" alt="Prithiviraj About">
-        <div class="about-content">
-            <h1>✨ About Me ✨</h1>
-            <p>I am a motivated Web Development student at Sridevi Arts and Science College with a keen interest in
-                creating dynamic and responsive websites.
-                I have a strong understanding of front-end and back-end technologies and am always eager to learn new
-                skills. My goal is to gain practical experience
-                and contribute to impactful web projects while continuously improving my coding and problem-solving
-                abilities.</p>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <h1 class="section-title">💡 Skills & Education 💡</h1>
-        <div class="skills-container">
-
-            <!-- Technical Skills -->
-            <div class="skill-card">
-                <h2>✨ Technical Skills ✨</h2>
-                <table>
-                    <tr>
-                        <td><span>HTML</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="range-container">
-                                <input
-                                    style="background: linear-gradient(50deg, #2e72ff var(--val, 90%), #333 var(--val, 10%));"
-                                    type="range" value="90%" max="100%" disabled>
-                                <span class="tooltip">90%</span>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td><span>CSS</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="range-container">
-                                <input
-                                    style="background: linear-gradient(50deg, #2e72ff var(--val, 80%), #333 var(--val, 20%));"
-                                    type="range" value="80" max="100" disabled>
-                                <span class="tooltip">80%</span>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td><span>JavaScript</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="range-container">
-                                <input
-                                    style="background: linear-gradient(50deg, #2e72ff var(--val, 40%), #333 var(--val, 40%));"
-                                    type="range" value="40" max="100" disabled>
-                                <span class="tooltip">40%</span>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td><span>Java</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="range-container">
-                                <input
-                                    style="background: linear-gradient(50deg, #2e72ff var(--val, 85%), #333 var(--val, 15%));"
-                                    type="range" value="85" max="100" disabled>
-                                <span class="tooltip">85%</span>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td><span>Python</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="range-container">
-                                <input
-                                    style="background: linear-gradient(50deg, #2e72ff var(--val, 75%), #333 var(--val, 25%));"
-                                    type="range" value="75" max="100" disabled>
-                                <span class="tooltip">75%</span>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
             </div>
 
-            <!-- Soft Skills -->
-            <div class="skill-card">
-                <h2>✨ Soft Skills ✨</h2>
-                <ul>
-                    <li>
-                        <span>Communication</span>
-                        <div class="range-container">
-                            <input
-                                style="background: linear-gradient(50deg, #2e72ff var(--val, 90%), #333 var(--val, 10%));"
-                                type="range" value="90" max="100" disabled>
-                            <span class="tooltip">90%</span>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="fade-in-up">
+                        Hi, I'm <span class="gradient-text">Prithiviraj</span>
+                    </h1>
+                    <h3 class="fade-in-up delay-1">Web Developer</h3>
+                    <p class="fade-in-up delay-2">
+                        Currently pursuing my UG at Sridevi Arts and Science College and dedicated to creating modern,
+                        responsive, and user-friendly websites.
+                    </p>
+                    <div class="btn-box fade-in-up delay-3">
+                        <a href="mailto:pmprithiviraj@gmail.com" class="btn btn-primary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                            </svg>
+                            Hire Me
+                        </a>
+                        <a href="#" class="btn btn-secondary" id="downloadCV">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Download CV
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <div class="avatar-container" id="avatarContainer">
+                        <div class="avatar-glow"></div>
+                        <img src="./img/logo2.png" alt="Prithiviraj Avatar" class="avatar">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="./img/logo.webp" alt="Prithiviraj" class="about-avatar">
+                </div>
+
+                <div class="about-content" id="aboutCard">
+                    <h2>About Me</h2>
+                    <p>
+                        I am a motivated Web Development student at Sridevi Arts and Science College with a keen interest in
+                        creating dynamic and responsive websites. I have a strong understanding of front-end and back-end
+                        technologies and am always eager to learn new skills.
+                    </p>
+                    <p>
+                        My goal is to gain practical experience and contribute to impactful web projects while continuously
+                        improving my coding and problem-solving abilities.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <h3>5+</h3>
+                            <p>Projects Completed</p>
                         </div>
-                    </li>
-                    <li>
-                        <span>Teamwork</span>
-                        <div class="range-container">
-                            <input
-                                style="background: linear-gradient(50deg, #2e72ff var(--val, 80%), #333 var(--val, 20%));"
-                                type="range" value="80" max="100" disabled>
-                            <span class="tooltip">80%</span>
+                        <div class="stat-item">
+                            <h3>3+</h3>
+                            <p>Technologies</p>
                         </div>
-                    </li>
-                    <li>
-                        <span>Problem-Solving</span>
-                        <div class="range-container">
-                            <input
-                                style="background: linear-gradient(50deg, #2e72ff var(--val, 85%), #333 var(--val, 15%));"
-                                type="range" value="85" max="100" disabled>
-                            <span class="tooltip">85%</span>
+                        <div class="stat-item">
+                            <h3>2+</h3>
+                            <p>Certifications</p>
                         </div>
-                    </li>
-                    <li>
-                        <span>Leadership</span>
-                        <div class="range-container">
-                            <input
-                                style="background: linear-gradient(50deg, #2e72ff var(--val, 75%), #333 var(--val, 25%));"
-                                type="range" value="75" max="100" disabled>
-                            <span class="tooltip">75%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills" id="skills">
+            <h2 class="section-title">Skills & Education</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                        <h3>Technical Skills</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item" data-skill="90">
+                            <div class="skill-header">
+                                <span class="skill-name">HTML</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%"></div>
+                            </div>
                         </div>
-                    </li>
-                    <li>
-                        <span>Adaptability</span>
-                        <div class="range-container">
-                            <input
-                                style="background: linear-gradient(50deg, #2e72ff var(--val, 70%), #333 var(--val, 30%));"
-                                type="range" value="70" max="100" disabled>
-                            <span class="tooltip">70%</span>
+                        <div class="skill-item" data-skill="80">
+                            <div class="skill-header">
+                                <span class="skill-name">CSS</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%"></div>
+                            </div>
                         </div>
-                    </li>
-                </ul>
+                        <div class="skill-item" data-skill="40">
+                            <div class="skill-header">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-percentage">40%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="85">
+                            <div class="skill-header">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="75">
+                            <div class="skill-header">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        <h3>Soft Skills</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item" data-skill="90">
+                            <div class="skill-header">
+                                <span class="skill-name">Communication</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="80">
+                            <div class="skill-header">
+                                <span class="skill-name">Teamwork</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="85">
+                            <div class="skill-header">
+                                <span class="skill-name">Problem-Solving</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="75">
+                            <div class="skill-header">
+                                <span class="skill-name">Leadership</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="70">
+                            <div class="skill-header">
+                                <span class="skill-name">Adaptability</span>
+                                <span class="skill-percentage">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card education-card">
+                    <div class="skill-card-header">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                        <h3>Education</h3>
+                    </div>
+                    <div class="education-content">
+                        <div class="education-item">
+                            <h4>Bachelor's of Computer Science</h4>
+                            <p>Sridevi Arts and Science College</p>
+                        </div>
+                        
+                        <div class="education-section">
+                            <h5>Certifications</h5>
+                            <ul>
+                                <li>Java Training Certification (Besant Technologies)</li>
+                                <li>Full Stack Web Development Bootcamp (NoviTech)</li>
+                            </ul>
+                        </div>
+
+                        <div class="education-section">
+                            <h5>Training</h5>
+                            <ul>
+                                <li>Full Stack Web Development Bootcamp</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <!-- Education -->
-            <div class="skill-card">
-                <h2>✨ Education ✨</h2>
-                <ul>
-                    <li><strong>Bachelor's of Computer Science</strong></li>
-                    <li>Sridevi Arts and Science College</li>
-                    <li>
-                        <b>Certifications:</b>
-                        <ul>
-                            <li>Java Training Certification (Besant Technologies)</li>
-                            <li>Full Stack Web Development Bootcamp (NoviTech)</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <b>Training:</b>
-                        <ul>
-                            <li>Full Stack Web Development Bootcamp</li>
-                        </ul>
-                    </li>
-                </ul>
+        <!-- Projects Section -->
+        <section class="projects" id="works">
+            <h2 class="section-title">My Works</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./img/logo3.png" alt="Login Page">
+                        <div class="project-overlay">
+                            <a href="./loginPage.html" class="view-project-btn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Login Page</h3>
+                        <p>A simple and secure user authentication interface using modern web technologies.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./img/logo4.png" alt="Shoe Shop">
+                        <div class="project-overlay">
+                            <a href="./index-shop.html" class="view-project-btn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Shoe Shop</h3>
+                        <p>An e-commerce front-end for a shoe store, featuring product listings and shopping cart functionality.</p>
+                    </div>
+                </div>
             </div>
+        </section>
 
-        </div>
-    </section>
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-subtitle">Let's connect and build something amazing together!</p>
+            
+            <div class="social-grid">
+                <a href="https://github.com/PMPrithiviraj/" target="_blank" rel="noopener noreferrer" class="social-card">
+                    <div class="social-icon" style="background-color: #333;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </div>
+                    <h3>GitHub</h3>
+                    <p>Check out my code and projects</p>
+                </a>
 
-    <!-- Projects -->
-    <section class="projects-section" id="works">
-        <h2>My Works</h2>
-        <div class="projects-container">
-            <div class="project-card">
-                <img src="img/logo3.png" alt="Project 1 Login Page">
-                <h3>Login Page</h3>
-                <p>A simple and secure user authentication interface using modern web technologies.</p>
-                <a href="loginPage.html" target="_blank" class="project-link">View Project</a>
+                <a href="https:/linkedin.com/in/prithiviraj-p-m-69242a350/" target="_blank" rel="noopener noreferrer" class="social-card">
+                    <div class="social-icon" style="background-color: #0077b5;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <p>Let's connect professionally</p>
+                </a>
+
+                <a href="https://www.facebook.com/profile.php?id=100090952364883" target="_blank" rel="noopener noreferrer" class="social-card">
+                    <div class="social-icon" style="background-color: #1877f2;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                        </svg>
+                    </div>
+                    <h3>Facebook</h3>
+                    <p>Connect with me on Facebook</p>
+                </a>
+
+                <a href="https://www.instagram.com/milky_boy._.05/" target="_blank" rel="noopener noreferrer" class="social-card">
+                    <div class="social-icon" style="background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </div>
+                    <h3>Instagram</h3>
+                    <p>Follow me on Instagram</p>
+                </a>
+
+                <a href="https://wa.me/+919003800733" target="_blank" rel="noopener noreferrer" class="social-card">
+                    <div class="social-icon" style="background-color: #25d366;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                        </svg>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>Message me directly</p>
+                </a>
             </div>
-
-            <div class="project-card">
-                <img src="img/logo4.png" alt="Project 2 Shoe Shop">
-                <h3>Shoe Shop</h3>
-                <p>An e-commerce front-end for a shoe store, featuring product listings and shopping cart functionality.
-                </p>
-                <a href="index-shop.html" target="_blank" class="project-link">View Project</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social -->
-    <section class="social-container" id="contact">
-        <a href="https://github.com/PMPrithiviraj" target="_blank" class="social-card"><i class="bi bi-github"></i>
-            <div class="social-name">GitHub</div>
-            <div class="social-description">Check out my code and projects</div>
-        </a>
-
-        <a href="https://www.facebook.com/profile.php?id=100090952364883" target="_blank" class="social-card"><i
-                class="bi bi-facebook"></i>
-            <div class="social-name">Facebook</div>
-            <div class="social-description">Connect with me on Facebook</div>
-        </a>
-
-        <a href="https://www.linkedin.com/feed/" target="_blank" class="social-card" aria-label="LinkedIn">
-            <i class="bi bi-linkedin"></i>
-            <div class="social-name">LinkedIn</div>
-            <div class="social-description">Let’s connect professionally</div>
-        </a>
-
-        <a href="https://www.instagram.com/milky_boy._.05/" target="_blank" class="social-card"><i
-                class="bi bi-instagram"></i>
-            <div class="social-name">Instagram</div>
-            <div class="social-description">Follow me on Instagram</div>
-        </a>
-
-        <a href="https://wa.me/+919003800733" target="_blank" class="social-card" aria-label="WhatsApp">
-            <i class="bi bi-whatsapp"></i>
-            <div class="social-name">WhatsApp</div>
-            <div class="social-description">Message me directly</div>
-        </a>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>© 2025 Prithiviraj P.M | All Rights Reserved.</p>
+        <div class="footer-content">
+            <p>© 2025 Prithiviraj P.M | All Rights Reserved.</p>
+            <p class="footer-love">
+                Made with 
+                <svg class="heart-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                by Prithiviraj
+            </p>
+        </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>

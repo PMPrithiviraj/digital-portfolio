@@ -4,16 +4,7 @@ Personal portfolio site for **Prithiviraj P M**, a full-stack developer skilled 
 
 **Live:** [digital-portfolio-nine-navy.vercel.app](https://digital-portfolio-nine-navy.vercel.app/)
 
-## Structure
-
-This repo currently contains two versions of the site:
-
-- **`app/`** — the current version. React + TypeScript + Vite + Tailwind CSS, with live, interactive case studies (not screenshots) of real projects.
-- **Repo root** (`index.html`, `style.css`, `script.js`, `loginPage.html`, `index-shop.html`) — the original static HTML/CSS/JS version, kept for reference during the migration.
-
-All active development happens in `app/`.
-
-## Tech stack (`app/`)
+## Tech stack
 
 - React 19 + TypeScript
 - Vite
@@ -32,12 +23,11 @@ All active development happens in `app/`.
 ## Getting started
 
 ```bash
-cd app
 npm install
 npm run dev
 ```
 
-Other scripts (run from `app/`):
+Other scripts:
 
 ```bash
 npm run build     # type-check + production build
@@ -47,9 +37,6 @@ npm run lint
 
 ## Deployment
 
-Deployed on Vercel. Project settings:
-
-- **Root Directory:** `app`
-- **Framework Preset:** Vite
+Deployed on Vercel — **Framework Preset:** Vite, Root Directory: repo root.
 
 No environment variables or secrets are required — the site is fully static/client-side (the contact form opens a pre-filled `mailto:` link; there is no backend).

@@ -2,7 +2,7 @@ import LoginForm from './LoginForm'
 import ProjectCase from './ProjectCase'
 import ShopDemo from './shop/ShopDemo'
 
-const REPO = 'https://github.com/PMPrithiviraj/digital-portfolio/blob/main/app/src'
+const REPO = 'https://github.com/PMPrithiviraj/digital-portfolio/blob/main/src'
 
 export default function ProjectsSection() {
   return (

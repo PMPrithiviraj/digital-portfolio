@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/jpeg" href="/icon.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the saved/system theme before first paint so prerendered HTML doesn't flash.
+      try {
+        var t = localStorage.getItem('theme')
+        if (t !== 'dark' && t !== 'light') {
+          t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+        }
+        document.documentElement.setAttribute('data-theme', t)
+      } catch (e) {}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -11,48 +21,117 @@
       rel="stylesheet"
     />
 
-    <title>Prithiviraj P M — Full Stack Developer</title>
+    <title>Prithiviraj P M — Full Stack Developer in Chennai | Python, React, MongoDB</title>
     <meta
       name="description"
-      content="Prithiviraj P M is a full-stack developer skilled in Python, JavaScript, and MongoDB, with hands-on experience in REST APIs, AES encryption, and JWT authentication. View live, interactive case studies."
+      content="Prithiviraj P M is a full stack developer in Ambattur, Chennai, skilled in Python, JavaScript, React, and MongoDB, with hands-on experience in REST APIs, AES encryption, and JWT authentication. Open to full-time roles, relocation, and freelance projects."
     />
+    <meta name="author" content="Prithiviraj P M" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://digital-portfolio-nine-navy.vercel.app/" />
 
-    <meta property="og:type" content="website" href="https://digital-portfolio-nine-navy.vercel.app/" />
-    <meta property="og:title" content="Prithiviraj P M — Full Stack Developer" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Prithiviraj P M" />
+    <meta property="og:title" content="Prithiviraj P M — Full Stack Developer in Chennai" />
     <meta
       property="og:description"
-      content="Full-stack developer skilled in Python, JavaScript, and MongoDB. View live, interactive case studies."
+      content="Chennai-based full stack developer skilled in Python, JavaScript, React, and MongoDB. Open to full-time roles and freelance projects. View live, interactive case studies."
     />
     <meta property="og:url" content="https://digital-portfolio-nine-navy.vercel.app/" />
-    <meta property="og:image" content="https://digital-portfolio-nine-navy.vercel.app/avatar.png" />
+    <meta property="og:image" content="https://digital-portfolio-nine-navy.vercel.app/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1200" />
+    <meta property="og:image:alt" content="Portrait of Prithiviraj P M" />
+    <meta property="profile:first_name" content="Prithiviraj" />
+    <meta property="profile:last_name" content="P M" />
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Prithiviraj P M — Full Stack Developer" />
+    <meta name="twitter:title" content="Prithiviraj P M — Full Stack Developer in Chennai" />
     <meta
       name="twitter:description"
-      content="Full-stack developer skilled in Python, JavaScript, and MongoDB."
+      content="Chennai-based full stack developer skilled in Python, JavaScript, React, and MongoDB."
     />
-    <meta name="twitter:image" content="https://digital-portfolio-nine-navy.vercel.app/avatar.png" />
+    <meta name="twitter:image" content="https://digital-portfolio-nine-navy.vercel.app/og-image.jpg" />
+    <meta name="twitter:image:alt" content="Portrait of Prithiviraj P M" />
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Prithiviraj P M",
-        "url": "https://digital-portfolio-nine-navy.vercel.app/",
-        "image": "https://digital-portfolio-nine-navy.vercel.app/avatar.png",
-        "jobTitle": "Full Stack Developer",
-        "email": "mailto:pmprithiviraj@gmail.com",
-        "sameAs": [
-          "https://github.com/PMPrithiviraj",
-          "https://www.linkedin.com/in/prithiviraj-p-m-69242a350"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://digital-portfolio-nine-navy.vercel.app/#website",
+            "url": "https://digital-portfolio-nine-navy.vercel.app/",
+            "name": "Prithiviraj P M — Portfolio",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://digital-portfolio-nine-navy.vercel.app/#person" }
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://digital-portfolio-nine-navy.vercel.app/#profilepage",
+            "url": "https://digital-portfolio-nine-navy.vercel.app/",
+            "name": "Prithiviraj P M — Full Stack Developer in Chennai",
+            "isPartOf": { "@id": "https://digital-portfolio-nine-navy.vercel.app/#website" },
+            "dateModified": "2026-09-27",
+            "mainEntity": { "@id": "https://digital-portfolio-nine-navy.vercel.app/#person" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://digital-portfolio-nine-navy.vercel.app/#person",
+            "name": "Prithiviraj P M",
+            "url": "https://digital-portfolio-nine-navy.vercel.app/",
+            "image": "https://digital-portfolio-nine-navy.vercel.app/og-image.jpg",
+            "jobTitle": "Full Stack Developer",
+            "description": "Full stack developer based in Ambattur, Chennai, skilled in Python, JavaScript, React, and MongoDB, with hands-on experience in REST APIs, AES encryption, and JWT authentication. Open to full-time roles, relocation, and freelance projects.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Ambattur, Chennai",
+              "addressRegion": "Tamil Nadu",
+              "addressCountry": "IN"
+            },
+            "makesOffer": {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Freelance web development",
+                "serviceType": "Website and web application development",
+                "areaServed": { "@type": "City", "name": "Chennai" }
+              }
+            },
+            "email": "mailto:pmprithiviraj@gmail.com",
+            "alumniOf": [
+              {
+                "@type": "CollegeOrUniversity",
+                "name": "Sridevi Arts and Science College, Ponneri"
+              },
+              {
+                "@type": "CollegeOrUniversity",
+                "name": "University of Madras"
+              }
+            ],
+            "knowsAbout": [
+              "Python",
+              "JavaScript",
+              "TypeScript",
+              "React",
+              "MongoDB",
+              "REST APIs",
+              "JWT authentication",
+              "AES-256 encryption",
+              "Tailwind CSS"
+            ],
+            "sameAs": [
+              "https://github.com/PMPrithiviraj",
+              "https://www.linkedin.com/in/prithivirajpm"
+            ]
+          }
         ]
       }
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

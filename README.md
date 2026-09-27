@@ -30,10 +30,15 @@ npm run dev
 Other scripts:
 
 ```bash
-npm run build     # type-check + production build
+npm run build     # type-check + production build + prerender HTML into dist/index.html
 npm run preview   # preview the production build locally
+npm run check:seo # validate sitemap, robots, canonical, JSON-LD and prerendered content in dist/
 npm run lint
 ```
+
+`npm run build` prerenders the page at build time (`src/entry-server.tsx` → `scripts/prerender.mjs`) so crawlers that don't run JavaScript still get the full content. The browser then renders the app normally with `createRoot`.
+
+When content changes substantively, update `<lastmod>` in `public/sitemap.xml` and `dateModified` in the JSON-LD in `index.html`.
 
 ## Deployment
 

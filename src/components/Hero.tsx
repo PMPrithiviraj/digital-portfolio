@@ -20,10 +20,13 @@ export default function Hero() {
             {...fadeUp(0)}
             className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-sm text-accent"
           >
-            Open to full-time Software Developer roles
+            Open to full-time roles &amp; freelance projects
           </motion.span>
 
           <motion.h1 {...fadeUp(0.1)} className="font-display text-4xl font-semibold leading-tight text-ink-primary sm:text-5xl">
+            <span className="mb-3 block font-sans text-base font-medium text-accent sm:text-lg">
+              Prithiviraj P M · Full Stack Developer in Chennai
+            </span>
             I build secure, full-stack web applications — from database to UI.
           </motion.h1>
 
@@ -60,10 +63,11 @@ export default function Hero() {
 
         <motion.div {...fadeUp(0.2)} className="shrink-0">
           <img
-            src="/avatar.png"
+            src="/avatar-640.webp"
             alt="Prithiviraj P M"
             width={280}
             height={280}
+            fetchPriority="high"
             className="rounded-full border-4 border-accent object-cover shadow-2xl"
           />
         </motion.div>

@@ -5,6 +5,8 @@ type Theme = 'dark' | 'light'
 const ThemeContext = createContext<{ theme: Theme; toggle: () => void } | null>(null)
 
 function getInitialTheme(): Theme {
+  // Build-time prerender runs in Node, where there is no window/localStorage.
+  if (typeof window === 'undefined') return 'dark'
   const stored = localStorage.getItem('theme')
   if (stored === 'dark' || stored === 'light') return stored
   return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'

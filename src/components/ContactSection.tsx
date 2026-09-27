@@ -13,7 +13,7 @@ const validators: Record<Field, (value: string) => string | undefined> = {
 
 const socials = [
   { name: 'GitHub', href: 'https://github.com/PMPrithiviraj', color: '#333' },
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/prithiviraj-p-m-69242a350', color: '#0077b5' },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/prithivirajpm', color: '#0077b5' },
   {
     name: 'Facebook',
     href: 'https://www.facebook.com/people/Prithivi-Raj/pfbid0Z74B3BWhnZ6u59uKjfKQg2cnrqNHJiXG5XN7xD2qnuQx61CsYQ1xghCqGy29miMpl/',
@@ -60,11 +60,12 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="bg-bg-base px-6 py-24">
+    <section id="contact" className="bg-bg-raised px-6 py-24">
       <div className="mx-auto max-w-3xl">
         <h2 className="text-center font-display text-3xl text-ink-primary sm:text-4xl">Get in touch</h2>
         <p className="mx-auto mt-3 max-w-xl text-center text-ink-secondary">
-          Open to entry-level Software Developer / Web Developer roles — happy to talk about any of the work above.
+          Open to entry-level Software Developer / Web Developer roles in Chennai or elsewhere, and to
+          freelance projects — happy to talk about any of the work above.
         </p>
 
         <motion.form

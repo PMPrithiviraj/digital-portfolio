@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Personal / working files (not site content)
+Profile.pdf
+seo-and-geo.txt
+
+# Local AI tool worktrees
+.kilo/

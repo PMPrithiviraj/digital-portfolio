@@ -11,7 +11,7 @@ export default function AboutSection() {
           whileInView={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
-          src="/avatar.png"
+          src="/avatar-640.webp"
           alt="Prithiviraj P M"
           width={320}
           height={320}
@@ -28,9 +28,9 @@ export default function AboutSection() {
         >
           <h2 className="font-display text-3xl text-ink-primary sm:text-4xl">About</h2>
           <p className="mt-4 text-ink-secondary">
-            I'm a Computer Science graduate from Sridevi Arts and Science College, Ponneri, with
-            hands-on experience building full-stack applications in Python, JavaScript, and
-            MongoDB. My strongest project so far is an encrypted file storage system with
+            I'm a Computer Science graduate from Sridevi Arts and Science College, Ponneri
+            (University of Madras), with hands-on experience building full-stack applications in
+            Python, JavaScript, and MongoDB. My strongest project so far is an encrypted file storage system with
             AES-256 encryption and JWT-based role access control — the same auth thinking behind
             the login demo above. I also built a face-recognition attendance system with OpenCV.
           </p>
@@ -40,6 +40,9 @@ export default function AboutSection() {
             and TypeScript on top of the Python/JavaScript foundation from my MERN Stack Training
             and Full Stack Development Masterclass. Looking for an entry-level Software Developer
             or Web Developer role where I can keep doing that on a real team.
+          </p>
+          <p className="mt-4 text-ink-secondary">
+            I'm based in Ambattur, Chennai, and open to relocating for the right role.
           </p>
 
           <dl className="mt-8 grid grid-cols-3 gap-4">

@@ -107,7 +107,7 @@ export default function Header({ onReboot }: Props) {
         </nav>
 
         {/* Right Controls: Desktop vs Mobile Compact Controls */}
-        <div className="flex items-center gap-2 sm:gap-2.5">
+        <div data-nosnippet className="flex items-center gap-2 sm:gap-2.5">
           {/* Desktop Only: SFX Toggle */}
           <button
             type="button"
@@ -185,7 +185,7 @@ export default function Header({ onReboot }: Props) {
           </div>
 
           {/* Dedicated Mobile System Controls Row */}
-          <div className="mt-4 pt-4 border-t border-border-subtle">
+          <div data-nosnippet className="mt-4 pt-4 border-t border-border-subtle">
             <span className="text-[10px] text-ink-muted uppercase tracking-wider block mb-3 font-semibold">
               // Mobile System Controls
             </span>

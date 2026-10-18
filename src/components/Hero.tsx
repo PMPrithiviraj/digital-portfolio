@@ -36,7 +36,7 @@ export default function Hero() {
             <motion.div {...fadeUp(0)}>
               <span className="inline-flex items-center gap-2 rounded-full border border-border-subtle bg-bg-card px-3 py-1 font-mono text-xs tracking-wider text-ink-secondary">
                 <span className="h-2 w-2 rounded-full bg-accent animate-ping" />
-                <span>Full-Stack Developer</span>
+                <span>Full-Stack Developer in Chennai</span>
               </span>
             </motion.div>
 
@@ -201,10 +201,11 @@ export default function Hero() {
               <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-full overflow-hidden border-2 border-accent/40 shadow-[0_0_35px_var(--color-accent-dim)] bg-bg-card">
                 <img
                   src="/avatar-640.webp"
-                  alt="Prithiviraj P M"
+                  alt="Prithiviraj P M — Full Stack Developer in Chennai"
                   width={320}
                   height={320}
                   fetchPriority="high"
+                  decoding="async"
                   className="h-full w-full object-cover filter contrast-105"
                 />
                 {/* Subtle Scanlines Overlay */}

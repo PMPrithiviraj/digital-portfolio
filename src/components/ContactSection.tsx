@@ -139,7 +139,7 @@ export default function ContactSection() {
             // GET IN TOUCH
           </span>
           <h2 className="mt-2 font-mono text-2xl sm:text-4xl lg:text-5xl font-extrabold text-ink-primary tracking-tight">
-            Let&apos;s Build Something <span className="text-accent underline decoration-accent/40 underline-offset-8">Extraordinary</span>
+            Contact Prithiviraj P M <span className="text-accent">—</span> Full Stack Developer in Chennai
           </h2>
           <p className="mx-auto mt-3 max-w-xl font-mono text-xs text-ink-secondary sm:text-sm">
             Available for full-time Software Developer roles and select freelance projects. Fill out the terminal below or copy my direct email.

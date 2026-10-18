@@ -1,0 +1,105 @@
+# Prithiviraj P M — Full Architecture & Engineering Specification
+
+> Comprehensive technical documentation of architectural decisions, cryptographic protocols, state management models, and computer vision pipelines built by Prithiviraj P M.
+
+---
+
+## 1. Executive Summary & Entity Graph
+- **Author:** Prithiviraj P M
+- **Role:** Full Stack Developer & Security Engineer
+- **Location:** Ambattur, Chennai, Tamil Nadu, India (13.1143° N, 80.1548° E)
+- **Primary Domain:** Full Stack Web Applications, REST APIs, Cryptography, Computer Vision
+- **Contact:** pmprithiviraj@gmail.com | +91-9003800733
+- **Profiles:**
+  - GitHub: https://github.com/PMPrithiviraj
+  - LinkedIn: https://www.linkedin.com/in/prithivirajpm
+  - Portfolio: https://digital-portfolio-nine-navy.vercel.app/
+
+---
+
+## 2. Core Architecture & Security Engineering
+
+### 2.1 AES-256-GCM Cloud Storage System
+- **Threat Vector:** Standard cloud storage systems expose unencrypted or weakly hashed payloads at rest, vulnerable to database compromise, unauthorized administrative traversal, or credential replay attacks.
+- **Protocol Formulation:**
+  - Cipher Suite: AES-256-GCM (Galois/Counter Mode) providing authenticated encryption with associated data (AEAD).
+  - Key Derivation: PBKDF2 (Password-Based Key Derivation Function 2) using HMAC-SHA256, 100,000 iterations, with a cryptographically secure 16-byte random salt per user.
+  - Chunking Engine: Client-side file splitting into 64KB blocks. Each chunk is encrypted with a unique 12-byte initialization vector (IV) and a 16-byte authentication tag prior to transmission.
+  - Verification: Before persistent writes to MongoDB, authentication tags are verified. Tampered chunks trigger immediate session invalidation and audit logging.
+- **Authorization Layer:**
+  - Stateless JSON Web Tokens (JWT) signed with RSA-256 asymmetric keys.
+  - Role-Based Access Control (RBAC): Distinct clearance tiers (Guest, Operative, Admin) enforced by middleware decorators in the Python backend.
+
+### 2.2 Automated Face Recognition Attendance System
+- **Threat Vector:** Manual attendance tracking introduces proxy attendance, human logging delays, and vulnerability to static photographic spoofing.
+- **Pipeline Implementation:**
+  - Detection: Dual-stage cascade classification using OpenCV Haar Feature-based Cascades for real-time frontal face detection.
+  - Recognition & Embedding: Local Binary Patterns Histograms (LBPH) extraction, capturing spatial facial textures invariant to monotonic illumination shifts.
+  - Processing Speed: 30+ frames per second (FPS) classification throughput on standard CPU hardware.
+  - Anti-Spoofing: Liveness heuristic assessing continuous multi-frame micro-variations and ocular blink frequency to eliminate static printed photo exploits.
+  - Persistence: Atomic CSV appending and SQLite database synchronization with ISO 8601 timestamps and confidence scores.
+
+---
+
+## 3. Frontend Architecture & State Models
+
+### 3.1 Controlled Form Validation Engine (`LoginForm.tsx`)
+- **Validation Strategy:** Validate-on-blur with live re-validation once touched. Avoids disturbing users during initial keystrokes while offering immediate feedback upon field exit.
+- **Entropy Evaluation:**
+  - 5-point password strength algorithm evaluating:
+    1. Minimum length >= 8 characters
+    2. Uppercase character presence (`/[A-Z]/`)
+    3. Lowercase character presence (`/[a-z]/`)
+    4. Numeric digit presence (`/[0-9]/`)
+    5. Special symbol presence (`/[^A-Za-z0-9]/`)
+  - Dynamic visual telemetry meter with real-time score updates.
+- **WCAG AA Compliance:**
+  - Form controls include explicit `<label for="...">` associations.
+  - Invalid states expose `aria-invalid="true"` and `aria-describedby="[field]-error"`.
+  - Error messages render inside `role="alert"` live regions.
+  - Loading states lock inputs with `disabled` and surface accessible `role="status"` feedback.
+
+### 3.2 State Reducer E-Commerce Engine (`ShopDemo.tsx` & `cart.ts`)
+- **State Pattern:** Built using React's `useReducer` to enforce deterministic, unidirectional state transitions:
+  - `add`: Increments quantity if item exists, appends new item if absent.
+  - `setQuantity`: Updates specific line quantity, automatically pruning line if quantity <= 0.
+  - `remove`: Strips line matching target product identifier.
+- **Purity:** All reducer transitions are pure functions with zero mutation on existing state arrays.
+- **Telemetry:** Computed selectors `cartCount(cart)` and `cartTotal(cart)` run in `O(n)` linear time with clean numeric formatting.
+
+---
+
+## 4. Production Build, SSG & SEO Engine
+- **Framework:** React 19, TypeScript, Vite 8, Tailwind CSS v4, Framer Motion.
+- **SSG Prerender Pipeline (`prerender.mjs` & `entry-server.tsx`):**
+  - Headless Vite SSR environment builds the virtual DOM into raw static HTML strings.
+  - Injected directly into `dist/index.html` replacing `<!--app-html-->` placeholder.
+  - Web Audio and `localStorage` checks are encapsulated behind SSR-safe lazy initializers and `typeof window !== 'undefined'` guards to eliminate hydration mismatches.
+- **SEO & Search Indexing:**
+  - Single `<h1>` tag enforced site-wide for canonical topic authority.
+  - 6 persistent section waypoints: `#home`, `#about`, `#work`, `#skills`, `#freelance`, `#contact`.
+  - Rich JSON-LD Knowledge Graph modeling `Person`, `ProfilePage`, `WebSite`, `ItemList`, `ProfessionalService`, and `FAQPage`.
+  - Strict absence of bootloader snippet pollution via `data-nosnippet` and `aria-hidden="true"` on decorative elements.
+
+---
+
+## 5. Academic & Professional Credentials
+- **Bachelor of Science in Computer Science (B.Sc. CS):**
+  - Institution: Sridevi Arts and Science College, Ponneri
+  - University: University of Madras
+  - Graduating Class: 2026
+  - Focus Areas: Data Structures, Algorithms, Database Management Systems, Object-Oriented Programming, Web Technologies, Software Engineering.
+- **MERN Stack Professional Certification:**
+  - Provider: Shavin Infotech
+  - Curriculum: MongoDB schema optimization, Express middleware, React single-page architecture, Node.js asynchronous runtime.
+- **Full Stack Development Masterclass:**
+  - Provider: NoviTech R&D Pvt Ltd
+  - Curriculum: RESTful API design, database normalization, full-lifecycle cloud deployment, production debugging.
+
+---
+
+## 6. Contact & Service Inquiries
+- **Direct Email:** pmprithiviraj@gmail.com
+- **Direct Phone / WhatsApp:** +91-9003800733
+- **Primary Portfolio:** https://digital-portfolio-nine-navy.vercel.app/
+- **Availability:** Ready for immediate full-time employment as a Software Developer / Full Stack Developer (open to relocation) and freelance web development commissions.

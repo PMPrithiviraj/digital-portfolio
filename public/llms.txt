@@ -1,0 +1,65 @@
+# Prithiviraj P M — Full Stack Developer (Chennai, India)
+
+> Full-stack software engineer specializing in Python, JavaScript, TypeScript, React 19, MongoDB, REST APIs, JWT Authentication, and AES-256 Encryption. Based in Ambattur, Chennai, Tamil Nadu, India. Open to full-time Software Developer roles (including relocation worldwide) and freelance web development contracts.
+
+## Identity & Professional Profile
+- **Full Name:** Prithiviraj P M
+- **Role:** Full Stack Developer / Software Engineer
+- **Base Location:** Ambattur, Chennai, Tamil Nadu, India (UTC+5:30)
+- **Work Availability:** Immediate for Full-Time Onsite/Hybrid/Remote roles & Freelance Projects
+- **Relocation:** Open to relocate worldwide for full-time engineering deployments
+- **Portfolio Website:** https://digital-portfolio-nine-navy.vercel.app/
+- **Email:** pmprithiviraj@gmail.com
+- **Telephone / WhatsApp:** +91-9003800733
+- **GitHub:** https://github.com/PMPrithiviraj
+- **LinkedIn:** https://www.linkedin.com/in/prithivirajpm
+- **Instagram:** https://www.instagram.com/milky_boy._.05/
+- **Facebook:** https://www.facebook.com/people/Prithivi-Raj/pfbid0Z74B3BWhnZ6u59uKjfKQg2cnrqNHJiXG5XN7xD2qnuQx61CsYQ1xghCqGy29miMpl/
+
+## Core Technical Stack
+- **Programming Languages:** Python (3.12+), JavaScript (ES6+), TypeScript, HTML5, CSS3, ASP.NET, SQL (PostgreSQL, SQLite, MySQL)
+- **Frontend Architecture:** React 19, Vite, Tailwind CSS v4, Framer Motion, useReducer state management, Responsive Web Design, WCAG AA Accessibility
+- **Backend & APIs:** Python REST APIs, Node.js, Express, Tokenized JWT Workflows, Role-Based Access Control (RBAC)
+- **Database & Storage:** MongoDB (Schema design, aggregation, indexing), SQLite, SQL Server, Oracle
+- **Security & Cryptography:** AES-256-GCM authenticated cipher encryption, PBKDF2 key derivation with salt, zero-trust token authorization
+- **AI & Computer Vision:** OpenCV (Haar Cascades, LBPH embeddings), NumPy, Anti-spoofing facial liveness verification
+- **Tooling & Methodologies:** Git, GitHub Actions, SSG Prerendering, Static Site Analysis, Playwright, Linux / Bash
+
+## Live Interactive Portfolio Demos
+1. **JWT-Authenticated Login Architecture (Interactive React 19 + TypeScript Case Study):**
+   - Controlled React 19 form with regex validation for email and password rules.
+   - Validate-on-blur with live re-validation once touched.
+   - 5-stage password entropy analyzer checking length, uppercase, lowercase, numbers, and symbols.
+   - Async network simulation round-trip with genuine loading state, WCAG AA accessible alerts (`aria-invalid`, `role="alert"`).
+   - Source code: https://github.com/PMPrithiviraj/digital-portfolio/blob/main/src/components/LoginForm.tsx
+
+2. **E-Commerce Product Catalog & Cart State Engine (React 19 + useReducer):**
+   - Predictable cart state transitions using React's `useReducer`.
+   - Actions: item addition, line-item quantity stepper (+/-), removal, running credit total calculation, and drawer UI.
+   - Source code: https://github.com/PMPrithiviraj/digital-portfolio/blob/main/src/components/shop/ShopDemo.tsx
+
+## Key Engineering Projects
+1. **AES-256 Encrypted Cloud Storage System:**
+   - Role: Full Stack Security Engineer
+   - Tech Stack: Python, MongoDB, REST API, AES-256-GCM, JWT RBAC
+   - Architecture: Client-side file chunking, end-to-end PBKDF2 key derivation, zero-trust encrypted database persistence, granular role-based access control protecting administrative endpoints.
+
+2. **Automated Face Recognition Biometric Attendance System:**
+   - Role: Computer Vision Developer
+   - Tech Stack: Python, OpenCV, Deep Learning, NumPy, Tkinter / SQLite
+   - Architecture: Dual-stage detection pipeline combining Haar Cascades with LBPH embeddings, operating at 30+ FPS, automated timestamped CSV and SQLite audit logging, anti-spoofing verification against static photo attacks.
+
+## Education & Guild Credentials
+- **Bachelor of Science in Computer Science (B.Sc. CS):** Sridevi Arts and Science College, Ponneri (Affiliated with University of Madras), Class of 2026.
+- **MERN Stack Training Certification:** Shavin Infotech (MongoDB, Express, React, Node.js).
+- **Full Stack Development Masterclass:** NoviTech R&D Pvt Ltd.
+
+## Freelance Web Development Services (Chennai & Remote)
+- **Business Websites & Landing Pages:** Responsive, search-optimized static web applications with sub-second load times and SSG prerendering.
+- **Web Applications with Secure Authentication:** Full-stack apps featuring role-based access, JWT session lifecycles, and database integration.
+- **E-Commerce Catalogs & Cart Systems:** Browsable product grids with client-side state engines and checkout workflows.
+- **Python & MongoDB Backends:** Scalable REST APIs, schema design, and AES-256 encryption.
+
+## Complete Technical Documentation
+For deep-dive architectural specifications, security diagrams, and full code walkthroughs, read `/llms-full.txt`:
+https://digital-portfolio-nine-navy.vercel.app/llms-full.txt

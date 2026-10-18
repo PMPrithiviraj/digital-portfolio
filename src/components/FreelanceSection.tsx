@@ -44,7 +44,7 @@ export default function FreelanceSection() {
             // FREELANCE &amp; CONTRACTS
           </span>
           <h2 className="mt-2 font-mono text-3xl sm:text-4xl font-extrabold text-ink-primary tracking-tight">
-            Services <span className="text-accent">&amp;</span> Custom Development
+            Freelance Web Development <span className="text-accent">in</span> Chennai &amp; Ambattur
           </h2>
           <p className="mt-2 font-mono text-xs sm:text-sm text-ink-secondary max-w-2xl">
             Need a reliable website or web application? I take on freelance contracts alongside full-time role opportunities. Based in Chennai, delivering worldwide.

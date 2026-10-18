@@ -83,7 +83,7 @@ export default function SkillsSection() {
             // CAPABILITIES
           </span>
           <h2 className="mt-2 font-mono text-3xl sm:text-4xl font-extrabold text-ink-primary tracking-tight">
-            What I Bring <span className="text-accent">&amp;</span> Technical Arsenal
+            Technical Skills <span className="text-accent">&amp;</span> Engineering Stack
           </h2>
           <p className="mt-2 font-mono text-xs sm:text-sm text-ink-secondary max-w-2xl">
             Battle-tested competencies backed by actual production and engineering implementations.

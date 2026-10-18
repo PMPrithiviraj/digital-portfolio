@@ -49,7 +49,7 @@ export default function ProjectsSection() {
             // SELECTED WORK
           </span>
           <h2 className="mt-2 font-mono text-3xl sm:text-4xl font-extrabold text-ink-primary tracking-tight">
-            Interactive Demos <span className="text-accent">&amp;</span> Production Systems
+            Selected Full-Stack Work <span className="text-accent">&amp;</span> Live Case Studies
           </h2>
           <p className="mt-2 font-mono text-xs sm:text-sm text-ink-secondary max-w-2xl">
             Live running components and production-grade architectures. Test the inputs directly.

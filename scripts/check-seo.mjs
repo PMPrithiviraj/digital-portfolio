@@ -26,6 +26,18 @@ check(lastmods.every((d) => !Number.isNaN(Date.parse(d))), 'every <lastmod> is a
 const robots = read('robots.txt')
 check(robots.includes(`Sitemap: ${SITE}sitemap.xml`), 'robots.txt declares the sitemap')
 check(!/^\s*Disallow:\s*\/\s*$/im.test(robots), 'robots.txt does not disallow the whole site')
+check(robots.includes('GPTBot') && robots.includes('PerplexityBot'), 'robots.txt permits AI search engine crawlers')
+
+// --- llms.txt & llms-full.txt (2026 GEO standard)
+const llmsExists = existsSync(path.join(dist, 'llms.txt'))
+const llmsContent = llmsExists ? read('llms.txt') : ''
+check(llmsExists && llmsContent.length > 100, 'llms.txt exists and is non-empty in dist')
+check(llmsContent.includes('Prithiviraj P M') && llmsContent.includes('Chennai'), 'llms.txt contains primary developer identity and location')
+
+const llmsFullExists = existsSync(path.join(dist, 'llms-full.txt'))
+const llmsFullContent = llmsFullExists ? read('llms-full.txt') : ''
+check(llmsFullExists && llmsFullContent.length > 100, 'llms-full.txt exists and is non-empty in dist')
+check(llmsFullContent.includes('AES-256') && llmsFullContent.includes('PBKDF2'), 'llms-full.txt contains deep technical specifications')
 
 // --- index.html
 const html = read('index.html')
@@ -34,6 +46,7 @@ check(canonicals.length === 1 && canonicals[0] === SITE, 'exactly one canonical,
 check(!/<meta[^>]+name="robots"[^>]+noindex/i.test(html), 'no meta robots noindex')
 check(/<title>[^<]{10,}<\/title>/.test(html), 'has a non-trivial <title>')
 check(/<meta[^>]+name="description"[^>]+content="[^"]{50,}"/.test(html), 'has a meta description')
+check(html.includes('<link rel="alternate" type="text/plain" href="/llms.txt"'), 'declares alternate link to llms.txt')
 
 const rootHtml = html.slice(html.indexOf('<div id="root">'))
 check(!html.includes('<!--app-html-->'), 'prerender placeholder was replaced')
@@ -42,12 +55,23 @@ for (const id of ['home', 'work', 'skills', 'about', 'freelance', 'contact']) {
   check(rootHtml.includes(`id="${id}"`), `prerendered HTML contains #${id} section`)
 }
 
+// Check key entity strings in prerendered HTML
+const requiredEntities = ['Prithiviraj P M', 'Chennai', 'Python', 'React', 'MongoDB', 'AES-256']
+for (const entity of requiredEntities) {
+  check(rootHtml.includes(entity), `prerendered HTML contains core entity "${entity}"`)
+}
+
 const jsonLd = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
 check(jsonLd.length > 0, 'has JSON-LD')
 for (const [, body] of jsonLd) {
   try {
-    JSON.parse(body)
+    const parsed = JSON.parse(body)
     check(true, 'JSON-LD parses')
+    const graph = parsed['@graph'] || [parsed]
+    const types = new Set(graph.map((item) => item['@type']))
+    for (const requiredType of ['Person', 'ProfilePage', 'WebSite', 'ItemList', 'FAQPage']) {
+      check(types.has(requiredType), `JSON-LD includes Schema.org @type "${requiredType}"`)
+    }
   } catch (err) {
     check(false, `JSON-LD parses (${err.message})`)
   }

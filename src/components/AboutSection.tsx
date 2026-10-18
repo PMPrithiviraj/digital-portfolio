@@ -50,7 +50,7 @@ export default function AboutSection() {
             // SHORT PROFILE
           </span>
           <h2 className="mt-2 font-mono text-3xl sm:text-4xl font-extrabold text-ink-primary tracking-tight">
-            About <span className="text-accent">&amp;</span> Architecture
+            About Prithiviraj P M <span className="text-accent">—</span> Full Stack Developer in Chennai
           </h2>
           <p className="mt-2 font-mono text-xs sm:text-sm text-ink-secondary">
             Bento overview of engineering principles, timezone readiness, and active competencies.

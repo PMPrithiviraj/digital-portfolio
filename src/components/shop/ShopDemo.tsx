@@ -187,7 +187,7 @@ function CartDrawer({
               >
                 <img
                   src={line.product.image}
-                  alt=""
+                  alt={line.product.name}
                   width={56}
                   height={56}
                   loading="lazy"

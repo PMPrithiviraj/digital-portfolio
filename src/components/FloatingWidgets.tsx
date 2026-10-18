@@ -53,7 +53,7 @@ export default function FloatingWidgets() {
       <StaircaseTransition active={staircaseActive} />
 
       {/* Desktop Only: Left-Edge Center Floating Accent Switcher Orb */}
-      <div className="fixed left-4 top-1/2 -translate-y-1/2 z-40 hidden md:block">
+      <div data-nosnippet aria-hidden="true" className="fixed left-4 top-1/2 -translate-y-1/2 z-40 hidden md:block">
         <button
           type="button"
           onClick={handleToggleAccent}
@@ -73,7 +73,7 @@ export default function FloatingWidgets() {
       </div>
 
       {/* Desktop Floating Audio/BGM Player Pill (Bottom Left) */}
-      <div className="fixed bottom-5 left-5 z-40 hidden sm:flex">
+      <div data-nosnippet aria-hidden="true" className="fixed bottom-5 left-5 z-40 hidden sm:flex">
         <div className="flex items-center gap-3 rounded-2xl border border-border-subtle bg-bg-card/95 px-3.5 py-2 backdrop-blur-md shadow-2xl transition hover:border-accent/40">
           {/* Animated/Spinning Synth Disc */}
           <div
@@ -121,7 +121,7 @@ export default function FloatingWidgets() {
       </div>
 
       {/* Mobile Only: Compact Circular Floating Audio Pill (Bottom Right - Non-Intrusive) */}
-      <div className="fixed bottom-4 right-4 z-40 sm:hidden">
+      <div data-nosnippet aria-hidden="true" className="fixed bottom-4 right-4 z-40 sm:hidden">
         <button
           type="button"
           onClick={handleToggleBgm}

@@ -74,6 +74,8 @@ export default function CatEyeLoader({ active, onComplete }: Props) {
   return (
     <AnimatePresence>
       <div
+        data-nosnippet
+        aria-hidden="true"
         className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black px-4 select-none cursor-pointer"
         onClick={() => {
           playClickActuate()

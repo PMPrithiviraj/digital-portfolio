@@ -72,10 +72,47 @@ for (const [, body] of jsonLd) {
     for (const requiredType of ['Person', 'ProfilePage', 'WebSite', 'ItemList', 'FAQPage']) {
       check(types.has(requiredType), `JSON-LD includes Schema.org @type "${requiredType}"`)
     }
+
+    const person = graph.find((item) => item['@type'] === 'Person')
+    check(Boolean(person), 'JSON-LD contains Person entity')
+    if (person) {
+      const alternateNames = person.alternateName || []
+      check(
+        Array.isArray(alternateNames) && alternateNames.length >= 20,
+        `Person has alternateName matrix with >=20 variations (found ${alternateNames.length})`
+      )
+      const sameAs = person.sameAs || []
+      check(
+        Array.isArray(sameAs) && sameAs.length >= 5,
+        `Person has sameAs profile array with >=5 URLs (found ${sameAs.length})`
+      )
+      const contactPoints = person.contactPoint || []
+      check(
+        Array.isArray(contactPoints) && contactPoints.length >= 2,
+        `Person has structured contactPoint definitions (found ${contactPoints.length})`
+      )
+    }
   } catch (err) {
     check(false, `JSON-LD parses (${err.message})`)
   }
 }
+
+// --- Multi-platform identity & rel="me" verification links
+check(html.includes('rel="me"'), 'HTML contains rel="me" identity verification links')
+for (const profileUrl of [
+  'github.com/PMPrithiviraj',
+  'linkedin.com/in/prithivirajpm',
+  'instagram.com/milky_boy._.05',
+  'facebook.com',
+  'wa.me/919003800733',
+]) {
+  check(html.includes(profileUrl), `HTML contains external profile link "${profileUrl}"`)
+}
+
+check(
+  /ENTITY_ID:[\s\S]*?Prithiviraj P M[\s\S]*?Prithviraj PM/.test(rootHtml),
+  'prerendered HTML contains footer entity index and aliases'
+)
 
 const ogImage = html.match(/<meta property="og:image" content="([^"]+)"/)?.[1] ?? ''
 check(ogImage.startsWith(SITE) && existsSync(path.join(dist, ogImage.slice(SITE.length))), 'og:image exists in the build')

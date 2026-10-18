@@ -51,11 +51,13 @@
 
 ## What's inside
 
-- **Live, interactive case studies**, each one the actual running component:
-  - JWT-authenticated login form with real client-side validation
-  - Product catalog with working cart state (`useReducer`)
-- **Evidence-based skills section**: every skill is tied to a project, with no self-rated percentages
-- **Dark/light theme** with persisted preference and no flash on load
+- **Bespoke Dark Stealth Gaming & Tactical HUD Interface**: Pitch-black stealth aesthetic combined with *Free Guy*-inspired world-space mission HUD telemetry.
+- **"Black Cat Eyes" Horror-Gaming Bootloader**: Atmospheric SVG bootloader with razor slit pupils, progressive molten gold bloom, realistic predatory blink, and segmented telemetry bar.
+- **Live, interactive case studies / simulators**, each one the actual running component:
+  - Security Clearance / Vault Access Terminal: JWT-authenticated login form with real client-side validation
+  - Armory & Supply Drop Quartermaster: Product catalog with working cart state (`useReducer`)
+- **Evidence-based tactical perk tree**: Every skill is tied to a project, with no self-rated percentages
+- **Tactical Visor Mode (Night Stalker / Day Ops)** with persisted preference and zero flash on load
 - **Accessible**: WCAG AA, verified with axe-core; animations respect `prefers-reduced-motion`
 - **Search-ready**: build-time prerendered HTML, JSON-LD (`ProfilePage` + `Person`), Open Graph/Twitter cards, sitemap, and robots.txt, guarded by an SEO regression check in CI
 

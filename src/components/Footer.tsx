@@ -24,8 +24,8 @@ const officialLinks = [
   },
   {
     platform: 'Instagram',
-    handle: '@milky_boy._.05',
-    href: 'https://www.instagram.com/milky_boy._.05/',
+    handle: '@prxthiviz',
+    href: 'https://www.instagram.com/prxthiviz',
     external: true,
     ariaLabel: 'Prithiviraj P M on Instagram (@milky_boy._.05)',
   },
